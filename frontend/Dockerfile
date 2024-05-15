@@ -35,6 +35,7 @@ RUN npm run build
 FROM base as final
 WORKDIR /app
 # Use production node environment by default.
+# TODO: 環境変数は.envファイルを使用して管理したい
 ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs
