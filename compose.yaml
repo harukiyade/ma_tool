@@ -8,6 +8,7 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
+  # frontend
   next-app:
     container_name: next-app
     build:
@@ -17,6 +18,19 @@ services:
     restart: always
     ports:
       - 3000:3000
+
+  # backend
+  python-app:
+    container_name: python-app
+    build:
+      context: ./backend
+    # environment:
+    #FASTAPI_ENV: production
+    # - ENVIRON
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend/api:/src
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
