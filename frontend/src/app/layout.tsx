@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../assets/styles/reset.scss";
 import "../assets/styles/global.scss";
 import "../assets/styles/variables.scss";
+import { Layout } from "@/components/parts/Layout";
 
 export const metadata: Metadata = {
   title: "MA tool",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Layout>{children}</Layout>
+      </body>
     </html>
   );
 }
