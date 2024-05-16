@@ -1,14 +1,10 @@
 .headerMenu {
-  justify-content: space-between;
+  display: flex;
+  gap: var(--spacing-2);
 
-  .mobileHeader {
-    padding-top: var(--spacing-1);
-  }
-
-  .pcHeader {
+  .menuItems {
     display: flex;
-    padding-right: var(--spacing-5);
-    width: 50%;
+    width: 60%;
 
     .link {
       color: var(--white);

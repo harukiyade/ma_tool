@@ -8,9 +8,7 @@ import styles from "./index.module.scss";
 import { Button } from "@/components/parts/Button";
 import Link from "next/link";
 
-type Props = {};
-
-export const Header: FC<Props> = () => {
+export const Header: FC = () => {
   return (
     <Box sx={{ flexGrow: 1, width: "100%", position: "fixed", zIndex: "100" }}>
       <AppBar position="static">
@@ -19,7 +17,7 @@ export const Header: FC<Props> = () => {
             MA Tool
           </Typography>
 
-          <div className={styles.pcHeader}>
+          <div className={styles.menuItems}>
             <Button color="inherit" variant="text">
               <Link href="/" className={styles.link}>
                 AIセールス
