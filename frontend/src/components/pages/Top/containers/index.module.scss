@@ -9,8 +9,14 @@
 
     .tabs {
       display: flex;
-      width: 70%;
-      align-items: baseline;
+      width: 80%;
+      height: 48px;
+      align-items: center;
+
+      /** MUIのbuttonのデフォルト値を更新 */
+      button {
+        min-height: 48px;
+      }
     }
   }
 }

@@ -4,6 +4,7 @@ import { Box, Typography, AppBar, Tabs, Tab } from "@mui/material";
 import { TabContentFrame } from "@/components/parts/TabContentFrame";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styles from "./index.module.scss";
+import { Icon } from "@/components/parts/Icon";
 
 const theme = createTheme({
   palette: {
@@ -25,13 +26,17 @@ export default function Top() {
   };
 
   /** headerのタブ名リスト */
-  const navList: { id: string; label: string }[] = [
-    { id: "0", label: "AIセールス" },
-    { id: "1", label: "セールスシグナル" },
-    { id: "2", label: "ターゲティング" },
-    { id: "3", label: "リスト" },
-    { id: "4", label: "アプローチ" },
-    { id: "5", label: "分析" },
+  const navList: { id: string; label: string; icon: React.ReactElement }[] = [
+    {
+      id: "0",
+      label: "AIセールス",
+      icon: <Icon icon="AISales" />,
+    },
+    { id: "1", label: "セールスシグナル", icon: <Icon icon="sales" /> },
+    { id: "2", label: "ターゲティング", icon: <Icon icon="search" /> },
+    { id: "3", label: "リスト", icon: <Icon icon="list" /> },
+    { id: "4", label: "アプローチ", icon: <Icon icon="flag" /> },
+    { id: "5", label: "分析", icon: <Icon icon="analysis" /> },
   ];
 
   return (
@@ -57,6 +62,8 @@ export default function Top() {
                   return (
                     <Tab
                       key={listItem.id}
+                      icon={listItem.icon}
+                      iconPosition="start"
                       label={listItem.label}
                       id={`tabId-${listItem.id}`}
                       aria-controls={`tabpanel-${listItem.id}`}
