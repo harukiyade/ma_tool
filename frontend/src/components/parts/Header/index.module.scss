@@ -1,0 +1,13 @@
+.headerMenu {
+  display: flex;
+  gap: var(--spacing-2);
+
+  .menuItems {
+    display: flex;
+    width: 60%;
+
+    .link {
+      color: var(--white);
+    }
+  }
+}

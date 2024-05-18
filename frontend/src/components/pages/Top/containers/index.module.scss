@@ -1,0 +1,26 @@
+.appBar {
+  height: 48px;
+
+  .toolBar {
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: center;
+    padding: 0 var(--spacing-6);
+
+    .tabs {
+      display: flex;
+      width: 80%;
+      height: 48px;
+      align-items: center;
+
+      /** MUIのbuttonのデフォルト値を更新 */
+      button {
+        min-height: 48px;
+      }
+    }
+  }
+}
+
+.container {
+  padding-top: var(--spacing-12);
+}
