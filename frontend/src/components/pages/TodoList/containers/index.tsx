@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.module.scss";
 import { Box, ThemeProvider } from "@mui/material";
-import { theme } from "@/components/themes";
+import { defaultTheme } from "@/components/themes";
 
 /** MUIBoxのプロパティ指定 */
 const boxSx = {
@@ -14,7 +14,7 @@ const boxSx = {
 export const TodoList = () => {
   return (
     <div className={styles.container}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={defaultTheme}>
         <Box sx={boxSx}>TODOリストのページ</Box>
       </ThemeProvider>
     </div>
