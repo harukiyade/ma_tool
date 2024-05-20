@@ -10,6 +10,7 @@ import { companyData } from "../../containers/sampleData";
 import { defaultTheme } from "@/components/themes";
 import styles from "./index.module.scss";
 import { Select } from "@/components/parts/Select";
+import { TextField } from "@/components/parts/TextField";
 
 const searchOptions = [
   "更新日新しい順",
@@ -22,23 +23,66 @@ const searchOptions = [
   "創立年数古い順",
 ];
 
+const tagOptions = ["業種", "設立年度", "資本金等"];
+
+const textFieldSx = {
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "primary.dark", // フォーカス時のラベル色
+  },
+  "& .MuiOutlinedInput-root": {
+    "&.Mui-focused fieldset": {
+      borderColor: "primary.dark", // フォーカス時のアウトライン色
+    },
+  },
+};
+
 export const CompanyList = () => {
+  const [tag, setTag] = useState<string>("");
+  const [keyWord, setKeyWord] = useState<string>("");
   const [option, setOption] = useState<string>("");
-  const handleChange = (e: SelectChangeEvent) => {
+
+  const handleTag = (e: SelectChangeEvent) => {
+    setTag(e.target.value);
+  };
+
+  const handleKeyWord = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyWord(e.target.value);
+  };
+
+  const handleOption = (e: SelectChangeEvent) => {
     setOption(e.target.value);
   };
+
   return (
     <section>
       <ThemeProvider theme={defaultTheme}>
-        <div>
-          <p>該当件数{companyData.length}件</p>
-          <p>絞り込み{option}</p>
-          <div className={styles.selector}>
+        <p>該当件数{companyData.length}件</p>
+        <div className={styles.searchOps}>
+          <div className={styles.input}>
+            {/* TODO: multiSelectで業界とか選べるように */}
             <Select
-              label={"search"}
+              label={"タグで絞り込み"}
+              value={tag}
+              options={tagOptions}
+              onChange={() => handleTag}
+              size="small"
+            />
+          </div>
+          <div className={styles.input}>
+            <TextField
+              label="キーワードで検索"
+              value={keyWord}
+              onChange={() => handleKeyWord}
+              size="small"
+              sx={textFieldSx}
+            />
+          </div>
+          <div className={styles.input}>
+            <Select
+              label={"並び替え"}
               value={option}
               options={searchOptions}
-              onChange={() => handleChange}
+              onChange={() => handleOption}
               size="small"
             />
           </div>

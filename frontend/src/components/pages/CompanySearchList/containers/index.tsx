@@ -25,12 +25,7 @@ export const CompanySearchList = () => {
         >
           会社一覧のページ
         </Typography>
-        <div className={styles.wrapper}>
-          <aside>サイドパネル</aside>
-          <main>
-            <CompanyList />
-          </main>
-        </div>
+        <CompanyList />
       </div>
     </ThemeProvider>
   );
