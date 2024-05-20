@@ -1,0 +1,11 @@
+.data {
+  display: flex;
+
+  > dt {
+    width: 30%;
+  }
+
+  > dd {
+    width: 70%;
+  }
+}

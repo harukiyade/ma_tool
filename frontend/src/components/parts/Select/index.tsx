@@ -15,6 +15,7 @@ type BaseProps = {
   onChange: (event: string) => void;
   error?: boolean;
   errorMessage?: string;
+  size?: "small" | "medium";
 };
 
 type SelectProps = React.ComponentPropsWithoutRef<"select">;
@@ -32,6 +33,7 @@ export const Select = forwardRef(
       onChange,
       error,
       errorMessage,
+      size = "medium",
     }: Props,
     ref
   ) => {
@@ -40,8 +42,17 @@ export const Select = forwardRef(
     };
 
     return (
-      <FormControl fullWidth error={error}>
-        <InputLabel id={label}>{label}</InputLabel>
+      <FormControl fullWidth error={error} size={size}>
+        <InputLabel
+          id={label}
+          sx={{
+            "&.Mui-focused": {
+              color: "primary.dark", // フォーカス時のラベル色
+            },
+          }}
+        >
+          {label}
+        </InputLabel>
         <MUISelect
           labelId={label}
           id={id}
@@ -49,6 +60,11 @@ export const Select = forwardRef(
           value={value}
           onChange={handleChange}
           ref={ref}
+          sx={{
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "primary.dark",
+            },
+          }}
         >
           {options?.map((item, index) => (
             <MenuItem value={item} key={index}>

@@ -10,13 +10,6 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<typeof Icon>;
 
-export const AISales: Story = {
-  args: {
-    icon: "AISales",
-    fontSize: "small",
-  },
-};
-
 export const Sales: Story = {
   args: {
     icon: "sales",
@@ -38,16 +31,9 @@ export const List: Story = {
   },
 };
 
-export const Flag: Story = {
+export const Copy: Story = {
   args: {
-    icon: "flag",
-    fontSize: "small",
-  },
-};
-
-export const Analysis: Story = {
-  args: {
-    icon: "analysis",
+    icon: "copy",
     fontSize: "small",
   },
 };
