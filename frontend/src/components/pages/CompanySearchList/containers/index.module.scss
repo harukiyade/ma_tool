@@ -1,0 +1,19 @@
+.container {
+  padding: var(--spacing-5) var(--spacing-4);
+
+  .wrapper {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-5);
+
+    > aside {
+      width: 25%;
+      border-radius: var(--spacing-2);
+      background-color: var(--lightBlue);
+    }
+
+    > main {
+      width: 75%;
+    }
+  }
+}
