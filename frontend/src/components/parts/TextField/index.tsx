@@ -10,6 +10,7 @@ type BaseProps = {
   onChange: (value: string) => void; // 追加
   error?: boolean;
   errorMessage?: string;
+  size?: "small" | "medium";
 };
 
 type Props = BaseProps & TextFieldProps;
@@ -23,6 +24,8 @@ export const TextField = forwardRef<HTMLInputElement, Props>(
       onChange,
       error,
       errorMessage,
+      size = "medium",
+      sx,
     }: Props,
     ref
   ) => {
@@ -39,7 +42,9 @@ export const TextField = forwardRef<HTMLInputElement, Props>(
         helperText={error && errorMessage}
         fullWidth
         onChange={handleChange}
+        size={size}
         ref={ref}
+        sx={sx}
       />
     );
   }
