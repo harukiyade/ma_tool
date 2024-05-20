@@ -1,5 +1,12 @@
 import { createTheme } from "@mui/material";
 
+const COLOR_PALETTE = {
+  yellow: "#fff200",
+  lightBlue: "#d6e6f2",
+  blackNavy: "#303841",
+  white: "#f5f5f5",
+};
+
 /**
  * MUIのpalette
  * https://mui.com/material-ui/customization/default-theme/?expand-path=$.palette
@@ -9,16 +16,16 @@ import { createTheme } from "@mui/material";
 export const defaultTheme = createTheme({
   palette: {
     primary: {
-      main: "#fff200", //yellow
+      main: COLOR_PALETTE.yellow,
     },
     secondary: {
-      main: "#d6e6f2", //lightblue
+      main: COLOR_PALETTE.lightBlue,
     },
     text: {
-      primary: "#303841", //blackNavy
+      primary: COLOR_PALETTE.blackNavy,
     },
     background: {
-      default: "#f5f5f5", //white
+      default: COLOR_PALETTE.white,
     },
   },
   typography: {
@@ -58,7 +65,7 @@ export const defaultTheme = createTheme({
 export const tabTheme = createTheme({
   palette: {
     primary: {
-      main: "#303841",
+      main: COLOR_PALETTE.blackNavy,
     },
   },
 });
