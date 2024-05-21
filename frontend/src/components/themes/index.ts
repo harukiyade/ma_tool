@@ -1,10 +1,16 @@
 import { createTheme } from "@mui/material";
 
+// const COLOR_PALETTE = {
+//   yellow: "#fff200",
+//   lightBlue: "#d6e6f2",
+//   blackNavy: "#303841",
+//   white: "#f5f5f5",
+// };
 const COLOR_PALETTE = {
-  yellow: "#fff200",
-  lightBlue: "#d6e6f2",
+  yellow: "#FFD24C",
+  lightBlue: "#92B4EC",
   blackNavy: "#303841",
-  white: "#f5f5f5",
+  white: "#FFFFFF",
 };
 
 /**
