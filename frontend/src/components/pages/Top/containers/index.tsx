@@ -20,7 +20,7 @@ export default function Top() {
   const navList: { id: string; label: string; icon: React.ReactElement }[] = [
     {
       id: "1",
-      label: "TODOリスト",
+      label: "リスト",
       icon: <Icon icon="list" />,
     },
     { id: "2", label: "会社一覧", icon: <Icon icon="search" /> },
