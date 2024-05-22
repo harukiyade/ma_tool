@@ -22,22 +22,19 @@ export const MainList = () => {
       <Typography variant="h2">リード獲得数</Typography>
       <Divider />
       <List>
-        <ListItem secondaryAction="1件">
+        <ListItem secondaryAction="1件" divider>
           <ListItemText primary="Inbox" />
         </ListItem>
-        <Divider />
-        <ListItem secondaryAction="1件">
+
+        <ListItem secondaryAction="1件" divider>
           <ListItemText primary="Inbox" />
         </ListItem>
-        <Divider />
-        <ListItem secondaryAction="1件">
+        <ListItem secondaryAction="1件" divider>
           <ListItemText primary="Inbox" />
         </ListItem>
-        <Divider />
-        <ListItem secondaryAction="1件">
+        <ListItem secondaryAction="1件" divider>
           <ListItemText primary="Inbox" />
         </ListItem>
-        <Divider />
       </List>
     </Box>
   );
