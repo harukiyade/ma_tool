@@ -11,6 +11,7 @@ const COLOR_PALETTE = {
   lightBlue: "#92B4EC",
   blackNavy: "#303841",
   white: "#FFFFFF",
+  backGround: "#f5f5f5",
 };
 
 /**
@@ -31,7 +32,7 @@ export const defaultTheme = createTheme({
       primary: COLOR_PALETTE.blackNavy,
     },
     background: {
-      default: COLOR_PALETTE.white,
+      default: COLOR_PALETTE.backGround,
     },
   },
   typography: {
