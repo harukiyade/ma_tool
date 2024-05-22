@@ -11,7 +11,7 @@ const sidePannelSx = {
 
 export const SidePannel = () => {
   return (
-    <Box sx={sidePannelSx} className={styles.sidePannel}>
+    <Box component="aside" sx={sidePannelSx} className={styles.sidePannel}>
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem text="リスト件数" />
