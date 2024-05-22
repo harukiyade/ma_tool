@@ -1,5 +1,15 @@
 .container {
   display: flex;
-  justify-content: center;
-  padding: var(--spacing-10) 0;
+  justify-content: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-5) 0;
+
+  .boxContainer {
+    padding: var(--spacing-3) var(--spacing-2);
+
+    .innerBoxContainer {
+      padding: var(--spacing-2) var(--spacing-2);
+      margin-top: var(--spacing-1);
+    }
+  }
 }
