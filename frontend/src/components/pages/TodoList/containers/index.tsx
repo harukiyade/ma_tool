@@ -1,14 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
-import {
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
+import { Box, ThemeProvider, Typography } from "@mui/material";
 import { defaultTheme } from "@/components/themes";
 import { SidePannel } from "../presentations/SidePannel";
 import { MainList } from "../presentations/MainList";
