@@ -1,10 +1,18 @@
 import { createTheme } from "@mui/material";
 
+// const COLOR_PALETTE = {
+//   yellow: "#fff200",
+//   lightBlue: "#d6e6f2",
+//   blackNavy: "#303841",
+//   white: "#f5f5f5",
+// };
+// ここを変更したらvariables.scssも変更する
 const COLOR_PALETTE = {
-  yellow: "#fff200",
-  lightBlue: "#d6e6f2",
+  yellow: "#FFD24C",
+  lightBlue: "#92B4EC",
   blackNavy: "#303841",
-  white: "#f5f5f5",
+  white: "#FFFFFF",
+  backGround: "#f5f5f5",
 };
 
 /**
@@ -25,7 +33,7 @@ export const defaultTheme = createTheme({
       primary: COLOR_PALETTE.blackNavy,
     },
     background: {
-      default: COLOR_PALETTE.white,
+      default: COLOR_PALETTE.backGround,
     },
   },
   typography: {

@@ -8,6 +8,8 @@ import { Icon } from "@/components/parts/Icon";
 import { TodoList } from "../../TodoList/containers";
 import { defaultTheme, tabTheme } from "@/components/themes";
 import { CompanySearchList } from "../../CompanySearchList/containers";
+import { ActionRecord } from "../../ActionRecord/containers";
+import { AccountMenu } from "../presentations/AccountMenu";
 
 export default function Top() {
   const [tabValue, setTabValue] = useState<number>(0);
@@ -20,7 +22,7 @@ export default function Top() {
   const navList: { id: string; label: string; icon: React.ReactElement }[] = [
     {
       id: "1",
-      label: "TODOリスト",
+      label: "リスト",
       icon: <Icon icon="list" />,
     },
     { id: "2", label: "会社一覧", icon: <Icon icon="search" /> },
@@ -66,6 +68,7 @@ export default function Top() {
                   })}
                 </Tabs>
               </ThemeProvider>
+              <AccountMenu />
             </div>
           </AppBar>
         </ThemeProvider>
@@ -78,7 +81,7 @@ export default function Top() {
           <CompanySearchList />
         </TabContentFrame>
         <TabContentFrame value={tabValue} index={2}>
-          行動履歴のページ
+          <ActionRecord />
         </TabContentFrame>
       </section>
     </>

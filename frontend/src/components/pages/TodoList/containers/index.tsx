@@ -1,22 +1,32 @@
 import React from "react";
 import styles from "./index.module.scss";
-import { Box, ThemeProvider } from "@mui/material";
+import { Box, ThemeProvider, Typography } from "@mui/material";
 import { defaultTheme } from "@/components/themes";
+import { SidePannel } from "../presentations/SidePannel";
+import { MainList } from "../presentations/MainList";
 
 /** MUIBoxのプロパティ指定 */
-const boxSx = {
+const BoxSx = {
   width: 760,
-  height: 1000,
+  height: 500,
   borderRadius: 2,
-  bgcolor: "primary.light",
+  bgcolor: "background.paper",
 };
 
 export const TodoList = () => {
   return (
-    <div className={styles.container}>
-      <ThemeProvider theme={defaultTheme}>
-        <Box sx={boxSx}>TODOリストのページ</Box>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <div className={styles.container}>
+        <SidePannel />
+        <div>
+          <Box component="main" sx={BoxSx} className={styles.boxContainer}>
+            <Typography variant="h1">リスト件数： 9870件</Typography>
+            <MainList />
+            <MainList />
+            <MainList />
+          </Box>
+        </div>
+      </div>
+    </ThemeProvider>
   );
 };
