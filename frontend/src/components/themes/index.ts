@@ -6,6 +6,7 @@ import { createTheme } from "@mui/material";
 //   blackNavy: "#303841",
 //   white: "#f5f5f5",
 // };
+// ここを変更したらvariables.scssも変更する
 const COLOR_PALETTE = {
   yellow: "#FFD24C",
   lightBlue: "#92B4EC",
