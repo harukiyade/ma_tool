@@ -1,0 +1,14 @@
+services:
+  next-app:
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./frontend:/app
+    command: npm run dev
+
+  python-app:
+    environment:
+      APP_ENV: development
+    volumes:
+      - ./backend/api:/src
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
