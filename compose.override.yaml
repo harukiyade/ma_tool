@@ -1,7 +1,8 @@
 services:
   next-app:
     environment:
-      NODE_ENV: development
+      # FIXME: WSLのバグか何かでNODE_ENV: developでhot reloadが即座に効かないらしいので一次しのぎ
+      - WATCHPACK_POLLING=true
     volumes:
       - ./frontend:/app
     command: npm run dev
