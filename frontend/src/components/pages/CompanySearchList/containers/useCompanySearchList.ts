@@ -1,20 +1,23 @@
 import useSWR from "swr";
-
-const fetcher = async (url: string) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
+import { Corporate } from "@/api/types";
 
 const useCompanySearchList = () => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const { data, error } = useSWR(`${backendUrl}/api/corporate`, fetcher);
+  const { data, error, isLoading } = useSWR<Corporate>(
+    `${backendUrl}/api/corporate`,
+    {
+      onSuccess(data) {
+        return data;
+      },
+      onError(error) {
+        console.log("swr returns error", error);
+      },
+    }
+  );
 
   return {
     data,
-    isLoading: !error && !data,
+    isLoading,
     isError: error,
   };
 };
