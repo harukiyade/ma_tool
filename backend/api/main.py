@@ -53,7 +53,6 @@ class QueryParams(BaseModel):
     page: Optional[str] = Query(None, description="")
     limit: Optional[str] = Query(None, description="")
 
-
 @app.get("/api/corporate")
 async def get_corporate_data(params: QueryParams = Depends()):
     try:
@@ -62,7 +61,8 @@ async def get_corporate_data(params: QueryParams = Depends()):
             "X-hojinInfo-api-token": api_token
         }
         url = "https://info.gbiz.go.jp/hojin/v1/hojin"
-        response = requests.get(url, headers=headers, params=params.dict())
+        print(f"Received params: {params.dict(exclude_none=True)}")  # デバッグ情報
+        response = requests.get(url, headers=headers, params=params.dict(exclude_none=True)) 
         response.raise_for_status()  # エラーチェック
         return response.json()
     except requests.exceptions.RequestException as e:

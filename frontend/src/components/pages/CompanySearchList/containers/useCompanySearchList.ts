@@ -1,10 +1,19 @@
 import useSWR from "swr";
 import { Corporate } from "@/api/types";
 
-const useCompanySearchList = () => {
+const fetcher = async (url: string) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+};
+
+const useCompanySearchList = (name: string) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const { data, error, isLoading } = useSWR<Corporate>(
-    `${backendUrl}/api/corporate`,
+    `${backendUrl}/api/corporate?name=${name}`,
+    fetcher,
     {
       onSuccess(data) {
         return data;
