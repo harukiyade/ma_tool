@@ -16,7 +16,7 @@ export type Company = {
 };
 
 export const CompanySearchList = () => {
-  const { data, isLoading, isError } = useCompanySearchList();
+  const { data, isLoading, isError } = useCompanySearchList("商事");
   return (
     <ThemeProvider theme={defaultTheme}>
       <div className={styles.container}>
