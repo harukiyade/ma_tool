@@ -1,9 +1,17 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { CompanyList } from "../presentations/CompanyList";
 import styles from "./index.module.scss";
 import useCompanySearchList from "./useCompanySearchList";
 import { SearchPannel } from "../presentations/SearchPannel";
 import { Typography } from "@mui/material";
+import {
+  Controller,
+  FormProvider,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { searchForm } from "./formSchema";
 
 export type Company = {
   name: string;
@@ -16,8 +24,16 @@ export type Company = {
 };
 
 export const CompanySearchList = () => {
+  /** 絞り込み検索のform管理 */
+  const methods = useForm({
+    resolver: zodResolver(searchForm),
+    defaultValues: { name: "" },
+  });
+  const { getValues } = methods;
+
+  /** APIからのデータ取得 */
   const { data, isLoading, isError } = useCompanySearchList({
-    name: "パーソル",
+    name: getValues("name"),
   });
 
   const corporateData = useMemo(() => {
@@ -26,7 +42,9 @@ export const CompanySearchList = () => {
 
   return (
     <div className={styles.container}>
-      <SearchPannel />
+      <FormProvider {...methods}>
+        <SearchPannel />
+      </FormProvider>
       {corporateData ? (
         <CompanyList data={corporateData} />
       ) : (
