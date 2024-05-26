@@ -6,9 +6,13 @@ import {
   Typography,
 } from "@mui/material";
 import { ListItem } from "../ListItem";
-import { companyData } from "../../containers/sampleData";
 import styles from "./index.module.scss";
 import { Select } from "@/components/parts/Select";
+import { CorporateDetailList } from "@/api/corporate/ResTypes";
+
+type Props = {
+  data: CorporateDetailList;
+};
 
 const searchOptions = [
   "更新日新しい順",
@@ -21,7 +25,7 @@ const searchOptions = [
   "創立年数古い順",
 ];
 
-export const CompanyList = () => {
+export const CompanyList = ({ data }: Props) => {
   const [option, setOption] = useState<string>("");
 
   const handleOption = (e: SelectChangeEvent) => {
@@ -33,7 +37,7 @@ export const CompanyList = () => {
       <div className={styles.searchOps}>
         <p className={styles.resultLength}>
           <Typography component="p" variant="h2" fontWeight="bold">
-            {companyData.length}
+            {data.length}
           </Typography>
           <Typography component="p" variant="h4">
             件
@@ -51,8 +55,8 @@ export const CompanyList = () => {
       </div>
       <Divider sx={{ borderColor: "primary.dark" }} />
       <MUIList>
-        {companyData.map((company) => {
-          return <ListItem key={company.id} company={company} />;
+        {data.map((company) => {
+          return <ListItem key={company.corporate_number} company={company} />;
         })}
       </MUIList>
     </section>
