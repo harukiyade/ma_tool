@@ -1,5 +1,5 @@
 .appBar {
-  height: 48px;
+  height: var(--header-hight);
 
   .toolBar {
     display: flex;
@@ -10,17 +10,17 @@
     .tabs {
       display: flex;
       width: 80%;
-      height: 48px;
+      height: var(--header-hight);
       align-items: center;
 
       /** MUIのbuttonのデフォルト値を更新 */
       button {
-        min-height: 48px;
+        min-height: var(--header-hight);
       }
     }
   }
 }
 
 .container {
-  padding-top: var(--spacing-12);
+  padding-top: var(--header-hight);
 }
