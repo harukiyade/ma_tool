@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
-import { Box, ThemeProvider, Typography } from "@mui/material";
-import { defaultTheme } from "@/components/themes";
+import { Box, Typography } from "@mui/material";
 import { SidePannel } from "../presentations/SidePannel";
 import { MainList } from "../presentations/MainList";
 
@@ -15,18 +14,16 @@ const BoxSx = {
 
 export const TodoList = () => {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <div className={styles.container}>
-        <SidePannel />
-        <div>
-          <Box component="main" sx={BoxSx} className={styles.boxContainer}>
-            <Typography variant="h1">リスト件数： 9870件</Typography>
-            <MainList />
-            <MainList />
-            <MainList />
-          </Box>
-        </div>
+    <div className={styles.container}>
+      <SidePannel />
+      <div>
+        <Box component="main" sx={BoxSx} className={styles.boxContainer}>
+          <Typography variant="h1">リスト件数： 9870件</Typography>
+          <MainList />
+          <MainList />
+          <MainList />
+        </Box>
       </div>
-    </ThemeProvider>
+    </div>
   );
 };

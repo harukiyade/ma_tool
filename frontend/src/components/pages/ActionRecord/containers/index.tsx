@@ -4,13 +4,11 @@ import {
   BottomNavigationAction,
   Fab,
   Paper,
-  ThemeProvider,
 } from "@mui/material";
 import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArchiveIcon from "@mui/icons-material/Archive";
 import AddIcon from "@mui/icons-material/Add";
-import { defaultTheme } from "@/components/themes";
 import { ActionCard } from "../presentations/ActionCard";
 import styles from "./index.module.scss";
 
@@ -38,7 +36,7 @@ export const ActionRecord = () => {
     "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.";
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <>
       <section className={styles.wrapper}>
         <div>
           <ActionCard
@@ -109,6 +107,6 @@ export const ActionRecord = () => {
           </BottomNavigation>
         </Paper>
       </footer>
-    </ThemeProvider>
+    </>
   );
 };

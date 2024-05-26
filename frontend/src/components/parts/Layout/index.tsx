@@ -1,6 +1,8 @@
+"use client";
 import React, { FC } from "react";
-import { Header } from "@/components/parts/Header";
 import styles from "./index.module.scss";
+import { ThemeProvider } from "@mui/material";
+import { defaultTheme } from "@/components/themes";
 
 type Props = {
   children: React.ReactNode;
@@ -8,9 +10,8 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={defaultTheme}>
       <div className={styles.container}>{children}</div>
-    </>
+    </ThemeProvider>
   );
 };
