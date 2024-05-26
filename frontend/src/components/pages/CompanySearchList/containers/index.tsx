@@ -1,8 +1,6 @@
 import React from "react";
 import { CompanyList } from "../presentations/CompanyList";
 import styles from "./index.module.scss";
-import { ThemeProvider } from "@mui/material";
-import { defaultTheme } from "@/components/themes";
 import useCompanySearchList from "./useCompanySearchList";
 import { SearchPannel } from "../presentations/SearchPannel";
 
@@ -21,11 +19,9 @@ export const CompanySearchList = () => {
     name: "パーソル",
   });
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <div className={styles.container}>
-        <SearchPannel />
-        <CompanyList />
-      </div>
-    </ThemeProvider>
+    <div className={styles.container}>
+      <SearchPannel />
+      <CompanyList />
+    </div>
   );
 };

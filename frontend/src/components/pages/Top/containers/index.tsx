@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import styles from "./index.module.scss";
 import { Icon } from "@/components/parts/Icon";
 import { TodoList } from "../../TodoList/containers";
-import { defaultTheme, tabTheme } from "@/components/themes";
+import { tabTheme } from "@/components/themes";
 import { CompanySearchList } from "../../CompanySearchList/containers";
 import { ActionRecord } from "../../ActionRecord/containers";
 import { AccountMenu } from "../presentations/AccountMenu";
@@ -34,44 +34,42 @@ export default function Top() {
       <Box
         sx={{ flexGrow: 1, width: "100%", position: "fixed", zIndex: "100" }}
       >
-        <ThemeProvider theme={defaultTheme}>
-          <AppBar position="static" className={styles.appBar}>
-            <div className={styles.toolBar}>
-              <Typography
-                color="text.primary"
-                variant="h6"
-                component="a"
-                href="/"
+        <AppBar position="static" className={styles.appBar}>
+          <div className={styles.toolBar}>
+            <Typography
+              color="text.primary"
+              variant="h6"
+              component="a"
+              href="/"
+            >
+              MA Tool
+            </Typography>
+            <ThemeProvider theme={tabTheme}>
+              <Tabs
+                value={tabValue}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+                textColor="primary"
+                indicatorColor="primary"
+                className={styles.tabs}
               >
-                MA Tool
-              </Typography>
-              <ThemeProvider theme={tabTheme}>
-                <Tabs
-                  value={tabValue}
-                  onChange={handleChange}
-                  aria-label="basic tabs example"
-                  textColor="primary"
-                  indicatorColor="primary"
-                  className={styles.tabs}
-                >
-                  {navList.map((listItem) => {
-                    return (
-                      <Tab
-                        key={listItem.id}
-                        icon={listItem.icon}
-                        iconPosition="start"
-                        label={listItem.label}
-                        id={`tabId-${listItem.id}`}
-                        aria-controls={`tabpanel-${listItem.id}`}
-                      />
-                    );
-                  })}
-                </Tabs>
-              </ThemeProvider>
-              <AccountMenu />
-            </div>
-          </AppBar>
-        </ThemeProvider>
+                {navList.map((listItem) => {
+                  return (
+                    <Tab
+                      key={listItem.id}
+                      icon={listItem.icon}
+                      iconPosition="start"
+                      label={listItem.label}
+                      id={`tabId-${listItem.id}`}
+                      aria-controls={`tabpanel-${listItem.id}`}
+                    />
+                  );
+                })}
+              </Tabs>
+            </ThemeProvider>
+            <AccountMenu />
+          </div>
+        </AppBar>
       </Box>
       <section className={styles.container}>
         <TabContentFrame value={tabValue} index={0}>
