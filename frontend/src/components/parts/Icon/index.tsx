@@ -4,8 +4,9 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
-export type IconType = "list" | "search" | "sales" | "copy";
+export type IconType = "list" | "search" | "sales" | "copy" | "newTab";
 type BaseProps = {
   icon: IconType;
 };
@@ -16,6 +17,7 @@ const iconMap = {
   list: ListAltIcon,
   sales: AutoGraphOutlinedIcon,
   copy: ContentCopyIcon,
+  newTab: OpenInNewIcon,
 };
 
 export const Icon: FC<Props> = ({ icon, color, fontSize }) => {

@@ -1,13 +1,23 @@
-.searchOps {
-  display: flex;
-  gap: var(--spacing-2);
+.container {
+  flex: 5;
 
-  //TODO: flexの割合変える (タグの右側スペース大きい)
-  .input {
-    width: 15%;
-    align-items: center;
+  .searchOps {
     display: flex;
-    gap: var(--spacing-2);
-    margin: var(--spacing-1) 0 var(--spacing-2);
+    gap: var(--spacing-3);
+    align-items: center;
+    margin-bottom: var(--spacing-2);
+    margin-left: var(--spacing-1);
+
+    .resultLength {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--spacing-1);
+    }
+
+    .input {
+      width: 15%;
+      display: flex;
+      gap: var(--spacing-2);
+    }
   }
 }
