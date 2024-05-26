@@ -1,5 +1,4 @@
 import React from "react";
-import { Company } from "../../containers";
 import {
   Divider,
   IconButton,
@@ -8,13 +7,14 @@ import {
 } from "@mui/material";
 import { Icon } from "@/components/parts/Icon";
 import styles from "./index.module.scss";
+import { CorporateDetail } from "@/api/corporate/ResTypes";
 
 type Props = {
-  company: Company;
+  company: CorporateDetail;
 };
 
 export const ListItem = ({ company }: Props) => {
-  const { name, address } = company;
+  const { name, location } = company;
 
   return (
     <>
@@ -32,7 +32,7 @@ export const ListItem = ({ company }: Props) => {
             component="dd"
             sx={{ color: "text.primary" }}
           >
-            {address}
+            {location}
           </Typography>
         </div>
         <div className={styles.icons}>
