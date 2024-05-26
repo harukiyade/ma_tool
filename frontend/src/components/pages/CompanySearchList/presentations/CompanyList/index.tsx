@@ -3,14 +3,16 @@ import {
   Divider,
   List as MUIList,
   SelectChangeEvent,
-  ThemeProvider,
+  Typography,
 } from "@mui/material";
 import { ListItem } from "../ListItem";
-import { companyData } from "../../containers/sampleData";
-import { defaultTheme } from "@/components/themes";
 import styles from "./index.module.scss";
 import { Select } from "@/components/parts/Select";
-import { TextField } from "@/components/parts/TextField";
+import { CorporateDetailList } from "@/api/corporate/ResTypes";
+
+type Props = {
+  data: CorporateDetailList;
+};
 
 const searchOptions = [
   "更新日新しい順",
@@ -23,77 +25,40 @@ const searchOptions = [
   "創立年数古い順",
 ];
 
-const tagOptions = ["業種", "設立年度", "資本金等"];
-
-const textFieldSx = {
-  "& .MuiInputLabel-root.Mui-focused": {
-    color: "primary.dark", // フォーカス時のラベル色
-  },
-  "& .MuiOutlinedInput-root": {
-    "&.Mui-focused fieldset": {
-      borderColor: "primary.dark", // フォーカス時のアウトライン色
-    },
-  },
-};
-
-export const CompanyList = () => {
-  const [tag, setTag] = useState<string>("");
-  const [keyWord, setKeyWord] = useState<string>("");
+export const CompanyList = ({ data }: Props) => {
   const [option, setOption] = useState<string>("");
-
-  const handleTag = (e: SelectChangeEvent) => {
-    setTag(e.target.value);
-  };
-
-  const handleKeyWord = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setKeyWord(e.target.value);
-  };
 
   const handleOption = (e: SelectChangeEvent) => {
     setOption(e.target.value);
   };
 
   return (
-    <section>
-      <ThemeProvider theme={defaultTheme}>
-        <p>該当件数{companyData.length}件</p>
-        <div className={styles.searchOps}>
-          <div className={styles.input}>
-            {/* TODO: multiSelectで業界とか選べるように */}
-            <Select
-              label={"タグで絞り込み"}
-              value={tag}
-              options={tagOptions}
-              onChange={() => handleTag}
-              size="small"
-            />
-          </div>
-          <div className={styles.input}>
-            <TextField
-              label="キーワードで検索"
-              value={keyWord}
-              onChange={() => handleKeyWord}
-              size="small"
-              sx={textFieldSx}
-            />
-          </div>
-          <div className={styles.input}>
-            <Select
-              label={"並び替え"}
-              value={option}
-              options={searchOptions}
-              onChange={() => handleOption}
-              size="small"
-            />
-          </div>
+    <section className={styles.container}>
+      <div className={styles.searchOps}>
+        <p className={styles.resultLength}>
+          <Typography component="p" variant="h2" fontWeight="bold">
+            {data.length}
+          </Typography>
+          <Typography component="p" variant="h4">
+            件
+          </Typography>
+        </p>
+        <div className={styles.input}>
+          <Select
+            label={"並び替え"}
+            value={option}
+            options={searchOptions}
+            onChange={() => handleOption}
+            size="small"
+          />
         </div>
-        <Divider sx={{ borderColor: "primary.dark" }} />
-        <MUIList>
-          {companyData.map((company) => {
-            return <ListItem key={company.id} company={company} />;
-          })}
-        </MUIList>
-      </ThemeProvider>
+      </div>
+      <Divider sx={{ borderColor: "primary.dark" }} />
+      <MUIList>
+        {data.map((company) => {
+          return <ListItem key={company.corporate_number} company={company} />;
+        })}
+      </MUIList>
     </section>
   );
 };

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { CompanyList } from "../presentations/CompanyList";
 import styles from "./index.module.scss";
-import { ThemeProvider, Typography } from "@mui/material";
-import { defaultTheme } from "@/components/themes";
 import useCompanySearchList from "./useCompanySearchList";
+import { SearchPannel } from "../presentations/SearchPannel";
+import { Typography } from "@mui/material";
+import {
+  Controller,
+  FormProvider,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { searchForm } from "./formSchema";
 
 export type Company = {
   name: string;
@@ -16,29 +24,32 @@ export type Company = {
 };
 
 export const CompanySearchList = () => {
-  const { data, isLoading, isError } = useCompanySearchList({
-    name: "パーソル",
+  /** 絞り込み検索のform管理 */
+  const methods = useForm({
+    resolver: zodResolver(searchForm),
+    defaultValues: { name: "" },
   });
+  const { getValues } = methods;
+
+  /** APIからのデータ取得 */
+  const { data, isLoading, isError } = useCompanySearchList({
+    name: getValues("name"),
+  });
+
+  const corporateData = useMemo(() => {
+    return data && data["hojin-infos"];
+  }, [data]);
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <div className={styles.container}>
-        <Typography
-          variant="h1"
-          fontWeight="bold"
-          sx={{ color: "text.primary" }}
-        >
-          会社一覧のページ
-        </Typography>
-        <div>会社情報取得テスト：</div>
-        {data?.["hojin-infos"]?.map((company: any) => (
-          <div key={company.id}>
-            <h2>{company.name}</h2>
-            <p>住所: {company.location}</p>
-            {/* 他のデータも適宜表示 */}
-          </div>
-        ))}
-        <CompanyList />
-      </div>
-    </ThemeProvider>
+    <div className={styles.container}>
+      <FormProvider {...methods}>
+        <SearchPannel />
+      </FormProvider>
+      {corporateData ? (
+        <CompanyList data={corporateData} />
+      ) : (
+        <Typography>データが取得できませんでした。</Typography>
+      )}
+    </div>
   );
 };
