@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo } from "react";
+"use client";
+import React, { useMemo } from "react";
 import { CompanyList } from "../presentations/CompanyList";
 import styles from "./index.module.scss";
 import useCompanySearchList from "./useCompanySearchList";
