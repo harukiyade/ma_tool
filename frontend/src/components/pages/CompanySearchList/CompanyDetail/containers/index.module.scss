@@ -1,0 +1,23 @@
+.appBar {
+  height: var(--header-hight);
+
+  .toolBar {
+    .tabs {
+      height: var(--header-hight);
+
+      > div {
+        overflow: auto;
+
+        /** MUIのbuttonのデフォルト値を更新 */
+        button {
+          width: 150px;
+          min-height: var(--header-hight);
+        }
+      }
+    }
+  }
+}
+
+.wrapper {
+  padding-top: var(--header-hight);
+}

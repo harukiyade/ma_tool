@@ -1,3 +1,5 @@
+import { CompanyDetail } from "@/components/pages/CompanySearchList/CompanyDetail/containers";
+
 export default function Page({ params }: { params: { corporate_id: string } }) {
-  return <h1>My Page{params.corporate_id}</h1>;
+  return <CompanyDetail id={params.corporate_id} />;
 }
