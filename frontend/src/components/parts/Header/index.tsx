@@ -26,14 +26,14 @@ export default function Header() {
   const pathname = usePathname();
 
   const getTabValue = (pathname: string) => {
-    switch (pathname) {
-      case URL_VALUES.approach:
+    switch (true) {
+      case pathname === URL_VALUES.approach:
         return 0;
-      case URL_VALUES.company:
+      case pathname.startsWith(URL_VALUES.company):
         return 1;
-      case URL_VALUES.history:
+      case pathname === URL_VALUES.history:
         return 2;
-      case URL_VALUES.reports:
+      case pathname === URL_VALUES.reports:
         return 3;
       default:
         return 0;
