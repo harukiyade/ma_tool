@@ -10,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { tabTheme } from "@/components/themes";
-import { Icon } from "@/components/parts/Icon";
 import { TabContentFrame } from "@/components/parts/TabContentFrame";
 import { Sourcing } from "../presentations/Sourcing";
 import { AntisocialCheck } from "../presentations/AntisocialCheck";
@@ -56,12 +55,19 @@ export const CompanyDetail = ({ id }: Props) => {
   ];
 
   return (
-    <div>
+    <>
+      <div className={styles.titleWrapper}>
+        <Typography variant="h1" fontWeight="bold">
+          サンプル株式会社
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          法人番号: {id}
+        </Typography>
+      </div>
       <Box
         sx={{
           flexGrow: 1,
           width: "100%",
-          position: "fixed",
           zIndex: "100",
         }}
       >
@@ -69,7 +75,12 @@ export const CompanyDetail = ({ id }: Props) => {
           variant="outlined"
           position="static"
           className={styles.appBar}
-          sx={{ bgcolor: "background.default" }}
+          sx={{
+            bgcolor: "background.default",
+            borderTop: "none",
+            borderRight: "none",
+            borderLeft: "none",
+          }}
         >
           <div className={styles.toolBar}>
             <ThemeProvider theme={tabTheme}>
@@ -98,7 +109,6 @@ export const CompanyDetail = ({ id }: Props) => {
         </AppBar>
       </Box>
       <div className={styles.wrapper}>
-        企業ID: {id}
         <TabContentFrame index={0} value={tabValue}>
           <BasicInfo />
         </TabContentFrame>
@@ -115,6 +125,6 @@ export const CompanyDetail = ({ id }: Props) => {
           <Documents />
         </TabContentFrame>
       </div>
-    </div>
+    </>
   );
 };
