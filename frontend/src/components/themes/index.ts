@@ -75,5 +75,8 @@ export const tabTheme = createTheme({
     primary: {
       main: COLOR_PALETTE.blackNavy,
     },
+    secondary: {
+      main: COLOR_PALETTE.lightBlue,
+    },
   },
 });
