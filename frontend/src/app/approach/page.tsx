@@ -1,10 +1,10 @@
 import React from "react";
-import Top from "@/components/pages/Top/containers";
+import { TodoList } from "@/components/pages/TodoList/containers";
 
 export default function Page() {
   return (
     <>
-      <Top />
+      <TodoList />
     </>
   );
 }
