@@ -1,18 +1,97 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+import { Icon } from "../Icon";
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Tab,
+  Tabs,
+  ThemeProvider,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import styles from "./index.module.scss";
+import { tabTheme } from "@/components/themes";
+import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 
-export const AccountMenu = () => {
+export default function Header() {
+  const [tabValue, setTabValue] = useState<number>(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
+
+  /** headerのタブ名リスト */
+  const navList: {
+    id: string;
+    label: string;
+    icon: React.ReactElement;
+    url: string;
+  }[] = [
+    {
+      id: "1",
+      label: "リスト",
+      icon: <Icon icon="list" />,
+      url: "/approach",
+    },
+    {
+      id: "2",
+      label: "会社一覧",
+      icon: <Icon icon="search" />,
+      url: "/company",
+    },
+    {
+      id: "3",
+      label: "行動履歴",
+      icon: <Icon icon="sales" />,
+      url: "/history",
+    },
+    { id: "4", label: "日報", icon: <Icon icon="sales" />, url: "/reports" },
+  ];
+
+  return (
+    <Box sx={{ flexGrow: 1, width: "100%", position: "fixed", zIndex: "100" }}>
+      <AppBar position="static" className={styles.appBar}>
+        <div className={styles.toolBar}>
+          <Typography color="text.primary" variant="h6" component="a" href="/">
+            MA Tool
+          </Typography>
+          <ThemeProvider theme={tabTheme}>
+            <Tabs
+              value={tabValue}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+              textColor="primary"
+              indicatorColor="primary"
+              className={styles.tabs}
+            >
+              {navList.map((listItem) => {
+                return (
+                  <Tab
+                    key={listItem.id}
+                    icon={listItem.icon}
+                    iconPosition="start"
+                    label={listItem.label}
+                    id={`tabId-${listItem.id}`}
+                    aria-controls={`tabpanel-${listItem.id}`}
+                  />
+                );
+              })}
+            </Tabs>
+          </ThemeProvider>
+          <AccountMenu />
+        </div>
+      </AppBar>
+    </Box>
+  );
+}
+
+const AccountMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -102,7 +181,7 @@ export const AccountMenu = () => {
           </ListItemIcon>
           Logout
         </MenuItem>
-      </Menu>{" "}
+      </Menu>
     </>
   );
 };
