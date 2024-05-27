@@ -16,6 +16,7 @@ import { Sourcing } from "../presentations/Sourcing";
 import { AntisocialCheck } from "../presentations/AntisocialCheck";
 import { Staff } from "../presentations/Staff";
 import { Documents } from "../presentations/Documents";
+import { BasicInfo } from "../presentations/BasicInfo";
 
 type Props = {
   id: string;
@@ -31,27 +32,26 @@ export const CompanyDetail = ({ id }: Props) => {
   const navList: {
     id: string;
     label: string;
-    // icon: React.ReactElement;
   }[] = [
     {
       id: "1",
-      label: "ソーシング制限",
-      //   icon: <Icon icon="list" />,
+      label: "基本情報",
     },
     {
       id: "2",
-      label: "反社チェック",
-      //   icon: <Icon icon="search" />,
+      label: "ソーシング制限",
     },
     {
       id: "3",
-      label: "自社担当者",
-      //   icon: <Icon icon="sales" />,
+      label: "反社チェック",
     },
     {
       id: "4",
+      label: "自社担当者",
+    },
+    {
+      id: "5",
       label: "資料・契約書",
-      //   icon: <Icon icon="sales" />,
     },
   ];
 
@@ -100,15 +100,18 @@ export const CompanyDetail = ({ id }: Props) => {
       <div className={styles.wrapper}>
         企業ID: {id}
         <TabContentFrame index={0} value={tabValue}>
-          <Sourcing />
+          <BasicInfo />
         </TabContentFrame>
         <TabContentFrame index={1} value={tabValue}>
-          <AntisocialCheck />
+          <Sourcing />
         </TabContentFrame>
         <TabContentFrame index={2} value={tabValue}>
-          <Staff />
+          <AntisocialCheck />
         </TabContentFrame>
         <TabContentFrame index={3} value={tabValue}>
+          <Staff />
+        </TabContentFrame>
+        <TabContentFrame index={4} value={tabValue}>
           <Documents />
         </TabContentFrame>
       </div>
