@@ -1,3 +1,7 @@
+.titleWrapper {
+  padding: var(--spacing-4) var(--spacing-3) var(--spacing-1);
+}
+
 .appBar {
   height: var(--header-hight);
 
@@ -19,5 +23,5 @@
 }
 
 .wrapper {
-  padding-top: var(--header-hight);
+  display: flex;
 }
