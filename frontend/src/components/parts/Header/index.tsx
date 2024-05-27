@@ -18,12 +18,45 @@ import {
 import styles from "./index.module.scss";
 import { tabTheme } from "@/components/themes";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
+import { useRouter, usePathname } from "next/navigation";
+import { URL_VALUES } from "@/libs/constants/url";
 
 export default function Header() {
-  const [tabValue, setTabValue] = useState<number>(0);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const getTabValue = (pathname: string) => {
+    switch (pathname) {
+      case URL_VALUES.approach:
+        return 0;
+      case URL_VALUES.company:
+        return 1;
+      case URL_VALUES.history:
+        return 2;
+      case URL_VALUES.reports:
+        return 3;
+      default:
+        return 0;
+    }
+  };
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTabValue(newValue);
+    switch (newValue) {
+      case 0:
+        router.push(URL_VALUES.approach);
+        break;
+      case 1:
+        router.push(URL_VALUES.company);
+        break;
+      case 2:
+        router.push(URL_VALUES.history);
+        break;
+      case 3:
+        router.push(URL_VALUES.reports);
+        break;
+      default:
+        break;
+    }
   };
 
   /** headerのタブ名リスト */
@@ -31,27 +64,27 @@ export default function Header() {
     id: string;
     label: string;
     icon: React.ReactElement;
-    url: string;
   }[] = [
     {
       id: "1",
       label: "リスト",
       icon: <Icon icon="list" />,
-      url: "/approach",
     },
     {
       id: "2",
       label: "会社一覧",
       icon: <Icon icon="search" />,
-      url: "/company",
     },
     {
       id: "3",
       label: "行動履歴",
       icon: <Icon icon="sales" />,
-      url: "/history",
     },
-    { id: "4", label: "日報", icon: <Icon icon="sales" />, url: "/reports" },
+    {
+      id: "4",
+      label: "日報",
+      icon: <Icon icon="sales" />,
+    },
   ];
 
   return (
@@ -63,7 +96,7 @@ export default function Header() {
           </Typography>
           <ThemeProvider theme={tabTheme}>
             <Tabs
-              value={tabValue}
+              value={getTabValue(pathname)}
               onChange={handleChange}
               aria-label="basic tabs example"
               textColor="primary"
