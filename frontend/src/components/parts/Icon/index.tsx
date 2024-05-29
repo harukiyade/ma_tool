@@ -5,8 +5,19 @@ import SearchIcon from "@mui/icons-material/Search";
 import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
 
-export type IconType = "list" | "search" | "sales" | "copy" | "newTab";
+export type IconType =
+  | "list"
+  | "search"
+  | "sales"
+  | "copy"
+  | "newTab"
+  | "doNot"
+  | "question"
+  | "check";
 type BaseProps = {
   icon: IconType;
 };
@@ -18,6 +29,9 @@ const iconMap = {
   sales: AutoGraphOutlinedIcon,
   copy: ContentCopyIcon,
   newTab: OpenInNewIcon,
+  doNot: DoNotDisturbIcon,
+  question: HelpOutlineIcon,
+  check: TaskAltIcon,
 };
 
 export const Icon: FC<Props> = ({ icon, color, fontSize }) => {
