@@ -1,18 +1,18 @@
 up-dev:
-	docker compose -f compose.yaml -f compose.override.yaml up
+	docker compose up
 
 up-dev-only-back:
-	docker compose -f compose.yaml -f compose.override.yaml up python-app
+	docker compose up python-app
 
-up-prod:
+up:
 	docker compose -f compose.yaml up
 
 down:
 	docker compose down
 
-build-dev-no-chahe:
-	docker compose -f compose.yaml -f compose.override.yaml build --no-cache
+build-dev-no-cache:
+	docker compose build --no-cache
 
-build-prod-no-chahe:
+build-prod-no-cache:
 	docker compose -f compose.yaml build --no-cache
 
