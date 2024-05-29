@@ -16,6 +16,7 @@ import { AntisocialCheck } from "../presentations/AntisocialCheck";
 import { Staff } from "../presentations/Staff";
 import { Documents } from "../presentations/Documents";
 import { BasicInfo } from "../presentations/BasicInfo";
+import { Icon } from "@/components/parts/Icon";
 
 type Props = {
   id: string;
@@ -54,15 +55,39 @@ export const CompanyDetail = ({ id }: Props) => {
     },
   ];
 
+  // TODO: ちゃんとしたflg管理に直す
+  // type SourcingType = "forbidden" | "available";
+  const sourcing: string = "available";
+
   return (
     <>
       <div className={styles.titleWrapper}>
-        <Typography variant="h1" fontWeight="bold">
-          サンプル株式会社
-        </Typography>
-        <Typography variant="caption" color="text.secondary">
-          法人番号: {id}
-        </Typography>
+        <div>
+          <Typography variant="h1" fontWeight="bold">
+            サンプル株式会社
+          </Typography>
+          <Typography variant="caption" color="text.secondary">
+            法人番号: {id}
+          </Typography>
+        </div>
+        <div className={styles.sourceFlg}>
+          {sourcing === "forbidden" ? (
+            <>
+              <Icon icon="doNot" color="error" />
+              <Typography variant="overline">アポ禁止</Typography>
+            </>
+          ) : sourcing === "available" ? (
+            <>
+              <Icon icon="check" color="success" />
+              <Typography variant="overline">アポ可能</Typography>
+            </>
+          ) : (
+            <>
+              <Icon icon="question" />
+              <Typography variant="overline">ソーシング制限情報なし</Typography>
+            </>
+          )}
+        </div>
       </div>
       <Box
         sx={{
