@@ -1,0 +1,37 @@
+.container {
+  margin: 0 auto;
+  width: 760px;
+  padding: var(--spacing-3) var(--spacing-4);
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+
+    .basicInfoBox {
+      padding: var(--spacing-3) var(--spacing-4);
+
+      .dataList {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: var(--spacing-3);
+      }
+    }
+
+    .businessInfoBox {
+      padding: var(--spacing-3) var(--spacing-4);
+
+      .dataList {
+        display: flex;
+        gap: var(--spacing-5);
+
+        > div {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

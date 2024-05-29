@@ -1,0 +1,32 @@
+.titleWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-3) var(--spacing-1);
+
+  .sourceFlg {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+  }
+}
+
+.appBar {
+  height: var(--header-hight);
+
+  .toolBar {
+    .tabs {
+      height: var(--header-hight);
+
+      > div {
+        overflow: auto;
+
+        /** MUIのbuttonのデフォルト値を更新 */
+        button {
+          width: 150px;
+          min-height: var(--header-hight);
+        }
+      }
+    }
+  }
+}

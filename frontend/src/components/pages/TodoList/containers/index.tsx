@@ -7,7 +7,6 @@ import { MainList } from "../presentations/MainList";
 /** MUIBoxのプロパティ指定 */
 const BoxSx = {
   width: 760,
-  height: 500,
   borderRadius: 2,
   bgcolor: "background.paper",
 };
