@@ -4,21 +4,11 @@ import { TextField } from "@/components/parts/TextField";
 import { Button } from "@/components/parts/Button";
 import styles from "./index.module.scss";
 import { Controller, useFormContext } from "react-hook-form";
+import { textFieldSx } from "@/components/themes/styleSx";
 
 const sidePannelSx = {
   borderRadius: 2,
   bgcolor: "background.paper",
-};
-
-const textFieldSx = {
-  "& .MuiInputLabel-root.Mui-focused": {
-    color: "primary.dark", // フォーカス時のラベル色
-  },
-  "& .MuiOutlinedInput-root": {
-    "&.Mui-focused fieldset": {
-      borderColor: "primary.dark", // フォーカス時のアウトライン色
-    },
-  },
 };
 
 export const SearchPannel = () => {
