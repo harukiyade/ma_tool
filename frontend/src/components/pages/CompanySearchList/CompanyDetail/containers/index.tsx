@@ -17,6 +17,8 @@ import { Staff } from "../presentations/Staff";
 import { Documents } from "../presentations/Documents";
 import { BasicInfo } from "../presentations/BasicInfo";
 import { Icon } from "@/components/parts/Icon";
+import { useFormHandler } from "./useFormHandler";
+import { FormProvider } from "react-hook-form";
 
 type Props = {
   id: string;
@@ -28,6 +30,8 @@ export const CompanyDetail = ({ id }: Props) => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
+
+  const { extraInfoFormMethods, additionalInfoFormMethods } = useFormHandler();
 
   const navList: {
     id: string;
@@ -135,7 +139,11 @@ export const CompanyDetail = ({ id }: Props) => {
       </Box>
       <div className={styles.wrapper}>
         <TabContentFrame index={0} value={tabValue}>
-          <BasicInfo />
+          <FormProvider {...extraInfoFormMethods}>
+            <FormProvider {...additionalInfoFormMethods}>
+              <BasicInfo />
+            </FormProvider>
+          </FormProvider>
         </TabContentFrame>
         <TabContentFrame index={1} value={tabValue}>
           <Sourcing />

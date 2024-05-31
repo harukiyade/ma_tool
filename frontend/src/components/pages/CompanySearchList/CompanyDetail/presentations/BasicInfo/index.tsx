@@ -2,25 +2,50 @@ import React, { useState } from "react";
 import styles from "./index.module.scss";
 import { Box, Typography } from "@mui/material";
 import { TextField } from "@/components/parts/TextField";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
 import {
   buttonSxContained,
   buttonSxOutlined,
   textFieldSecondarySx,
 } from "@/components/themes/styleSx";
 import { Button } from "@/components/parts/Button";
+import {
+  AdditionalInfoFormType,
+  ExtraInfoFormType,
+} from "../../containers/formSchema";
+import { AdditionalInfoInputOverlay } from "../AdditionalInfoInputOverlay";
 
-type DataDisplayType = { title: string; data: string }[];
+type DataDisplayType = {
+  title: string;
+  data: string;
+}[];
+export type AdditionalDataDisplayType = {
+  title: string;
+  data: string | undefined;
+  formName: keyof AdditionalInfoFormType;
+}[];
 
 export const BasicInfo = () => {
-  const [showInput, setShowInput] = useState(false);
+  const [showAdditionalInput, setShowAdditionalInput] = useState(false);
+  const [showExtraInput, setShowExtraInput] = useState(false);
 
-  /** TODO: 追加情報と備考それぞれでuseFormを定義する */
-  const { control, getValues, setValue } = useForm();
+  const {
+    control: controlExtra,
+    getValues: getValuesExtra,
+    handleSubmit: handleSubmitExtra,
+  } = useFormContext<ExtraInfoFormType>();
 
-  /** TODO: SubmitHandler追加 */
-  const onSubmit = (data: string) => {
+  const additionalInfoMethods = useFormContext<AdditionalInfoFormType>();
+
+  const onSubmitExtraInfo: SubmitHandler<ExtraInfoFormType> = (data) => {
     console.log("備考：", data);
+  };
+
+  const onSubmitAdditionalInfo: SubmitHandler<AdditionalInfoFormType> = (
+    data
+  ) => {
+    console.log("追加情報：", data);
+    setShowAdditionalInput(false);
   };
 
   const basicData: DataDisplayType = [
@@ -34,15 +59,47 @@ export const BasicInfo = () => {
     { title: "業種-大", data: "sample" },
   ];
 
-  const additionalData: DataDisplayType = [
-    { title: "代表者", data: "" },
-    { title: "代表者郵便番号", data: "" },
-    { title: "代表者住所", data: "" },
-    { title: "代表者誕生日", data: "" },
-    { title: "株主", data: "" },
-    { title: "業種-中", data: "" },
-    { title: "業種-小", data: "" },
-    { title: "業種-細", data: "" },
+  const additionalData: AdditionalDataDisplayType = [
+    {
+      title: "代表者",
+      data: additionalInfoMethods.getValues("name"),
+      formName: "name",
+    },
+    {
+      title: "代表者郵便番号",
+      data: additionalInfoMethods.getValues("zipCode"),
+      formName: "zipCode",
+    },
+    {
+      title: "代表者住所",
+      data: additionalInfoMethods.getValues("address"),
+      formName: "address",
+    },
+    {
+      title: "代表者誕生日",
+      data: additionalInfoMethods.getValues("birthday"),
+      formName: "birthday",
+    },
+    {
+      title: "株主",
+      data: additionalInfoMethods.getValues("shareholder"),
+      formName: "shareholder",
+    },
+    {
+      title: "業種-中",
+      data: additionalInfoMethods.getValues("businessM"),
+      formName: "businessM",
+    },
+    {
+      title: "業種-小",
+      data: additionalInfoMethods.getValues("businessS"),
+      formName: "businessS",
+    },
+    {
+      title: "業種-細",
+      data: additionalInfoMethods.getValues("businessXS"),
+      formName: "businessXS",
+    },
   ];
 
   // TODO: 業種の情報はプルダウンにしておく(フロントでもつかDBにするかは検討)
@@ -77,7 +134,24 @@ export const BasicInfo = () => {
         </Box>
       </div>
       <div className={styles.wrapper}>
-        <Typography variant="h2">追加情報</Typography>
+        <div className={styles.addButton}>
+          <Typography variant="h2">追加情報</Typography>
+          <Button
+            size="small"
+            variant="outlined"
+            onClick={() => setShowAdditionalInput(true)}
+            sx={buttonSxOutlined}
+          >
+            編集
+          </Button>
+        </div>
+        <AdditionalInfoInputOverlay
+          isOpen={showAdditionalInput}
+          handleClose={() => setShowAdditionalInput(false)}
+          onSubmit={onSubmitAdditionalInfo}
+          methods={additionalInfoMethods}
+          formOptions={additionalData}
+        />
         <Box
           sx={{ borderRadius: 2, bgcolor: "background.paper" }}
           className={styles.additionalInfoBox}
@@ -109,7 +183,7 @@ export const BasicInfo = () => {
           <Button
             size="small"
             variant="outlined"
-            onClick={() => setShowInput(true)}
+            onClick={() => setShowExtraInput(true)}
             sx={buttonSxOutlined}
           >
             編集
@@ -120,18 +194,21 @@ export const BasicInfo = () => {
           className={styles.otherInfoBox}
           component="section"
         >
-          <dl className={styles.dataList}>{getValues("memo")}</dl>
+          <dl className={styles.dataList}>{getValuesExtra("info")}</dl>
         </Box>
-        {showInput && (
-          <form onSubmit={() => onSubmit} className={styles.inputForm}>
+        {showExtraInput && (
+          <form
+            onSubmit={handleSubmitExtra(onSubmitExtraInfo)}
+            className={styles.inputForm}
+          >
             <Controller
-              control={control}
-              name="memo"
+              control={controlExtra}
+              name="info"
               render={({ field }) => (
                 <TextField
                   {...field}
                   label="情報を入力"
-                  value={getValues("memo")}
+                  value={getValuesExtra("info")}
                   size="small"
                   sx={textFieldSecondarySx}
                 />
@@ -142,7 +219,7 @@ export const BasicInfo = () => {
                 variant="contained"
                 sx={buttonSxContained}
                 type="submit"
-                onClick={() => setShowInput(false)}
+                onClick={() => setShowExtraInput(false)}
               >
                 決定
               </Button>
