@@ -12,6 +12,7 @@
     .addButton {
       display: flex;
       gap: var(--spacing-2);
+      align-items: center;
 
       > button {
         width: 60px;
@@ -42,11 +43,6 @@
       }
     }
 
-    //   .otherInfoBox {
-    //     .dataList {
-    //     }
-
-    //   }
     .inputForm {
       display: flex;
       flex-direction: column;
