@@ -6,7 +6,7 @@ type Variant = "outlined" | "filled" | "standard";
 type BaseProps = {
   label: string;
   variant?: Variant;
-  value: string;
+  value?: string;
   onChange: (value: string) => void; // 追加
   error?: boolean;
   errorMessage?: string;
