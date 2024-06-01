@@ -8,17 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import styles from "./index.module.scss";
-
-const innerBoxSx = {
-  borderRadius: 2,
-  bgcolor: "background.paper",
-  border: "2px solid",
-  borderColor: "background.default",
-};
+import { innerBox } from "./sxStyles";
 
 export const MainList = () => {
   return (
-    <Box sx={innerBoxSx} className={styles.innerBoxContainer}>
+    <Box sx={innerBox} className={styles.innerBoxContainer}>
       <Typography variant="h2">リード獲得数</Typography>
       <Divider />
       <List>
