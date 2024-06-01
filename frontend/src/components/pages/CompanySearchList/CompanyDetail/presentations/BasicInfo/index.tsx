@@ -14,6 +14,7 @@ import {
   ExtraInfoFormType,
 } from "../../containers/formSchema";
 import { AdditionalInfoInputOverlay } from "../AdditionalInfoInputOverlay";
+import { box } from "./sxStyles";
 
 type DataDisplayType = {
   title: string;
@@ -108,11 +109,7 @@ export const BasicInfo = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <Typography variant="h2">基本情報</Typography>
-        <Box
-          sx={{ borderRadius: 2, bgcolor: "background.paper" }}
-          className={styles.basicInfoBox}
-          component="section"
-        >
+        <Box sx={box} className={styles.basicInfoBox} component="section">
           <dl className={styles.dataList}>
             {basicData.map((data) => {
               return (
@@ -152,11 +149,7 @@ export const BasicInfo = () => {
           methods={additionalInfoMethods}
           formOptions={additionalData}
         />
-        <Box
-          sx={{ borderRadius: 2, bgcolor: "background.paper" }}
-          className={styles.additionalInfoBox}
-          component="section"
-        >
+        <Box sx={box} className={styles.additionalInfoBox} component="section">
           <dl className={styles.dataList}>
             {additionalData.map((data) => {
               return (
@@ -189,11 +182,7 @@ export const BasicInfo = () => {
             編集
           </Button>
         </div>
-        <Box
-          sx={{ borderRadius: 2, bgcolor: "background.paper" }}
-          className={styles.otherInfoBox}
-          component="section"
-        >
+        <Box sx={box} className={styles.otherInfoBox} component="section">
           <dl className={styles.dataList}>{getValuesExtra("info")}</dl>
         </Box>
         {showExtraInput && (
