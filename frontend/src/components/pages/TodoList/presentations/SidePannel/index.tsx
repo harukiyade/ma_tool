@@ -2,16 +2,11 @@ import React from "react";
 import { Box, Divider, List } from "@mui/material";
 import styles from "./index.module.scss";
 import { ListItem } from "../ListItem";
-
-const sidePannelSx = {
-  width: 200,
-  borderRadius: 2,
-  bgcolor: "background.paper",
-};
+import { sidePannel } from "./sxStyles";
 
 export const SidePannel = () => {
   return (
-    <Box component="aside" sx={sidePannelSx} className={styles.sidePannel}>
+    <Box component="aside" sx={sidePannel} className={styles.sidePannel}>
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem text="リスト件数" />

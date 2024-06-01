@@ -19,6 +19,7 @@ import { BasicInfo } from "../presentations/BasicInfo";
 import { Icon } from "@/components/parts/Icon";
 import { useFormHandler } from "./useFormHandler";
 import { FormProvider } from "react-hook-form";
+import { appBar, headerBox } from "./sxStyles";
 
 type Props = {
   id: string;
@@ -93,23 +94,12 @@ export const CompanyDetail = ({ id }: Props) => {
           )}
         </div>
       </div>
-      <Box
-        sx={{
-          flexGrow: 1,
-          width: "100%",
-          zIndex: "100",
-        }}
-      >
+      <Box sx={headerBox}>
         <AppBar
           variant="outlined"
           position="static"
           className={styles.appBar}
-          sx={{
-            bgcolor: "background.default",
-            borderTop: "none",
-            borderRight: "none",
-            borderLeft: "none",
-          }}
+          sx={appBar}
         >
           <div className={styles.toolBar}>
             <ThemeProvider theme={tabTheme}>

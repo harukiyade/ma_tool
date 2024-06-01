@@ -15,6 +15,7 @@ import {
 } from "@/components/themes/styleSx";
 import CloseIcon from "@mui/icons-material/Close";
 import { Button } from "@/components/parts/Button";
+import { dialogPaper, iconButton } from "./sxStyles";
 
 type Props = {
   isOpen: boolean;
@@ -38,22 +39,13 @@ export const AdditionalInfoInputOverlay = ({
       PaperProps={{
         component: "form",
         onSubmit: methods.handleSubmit(onSubmit),
-        sx: { width: "fit-content", maxWidth: "none" },
+        sx: dialogPaper,
       }}
     >
       <DialogTitle>
         <Typography variant="h3">追加情報を入力</Typography>
       </DialogTitle>
-      <IconButton
-        aria-label="close"
-        onClick={handleClose}
-        sx={{
-          position: "absolute",
-          right: 8,
-          top: 8,
-          color: (theme) => theme.palette.grey[500],
-        }}
-      >
+      <IconButton aria-label="close" onClick={handleClose} sx={iconButton}>
         <CloseIcon />
       </IconButton>
       <DialogContent className={styles.dialogContent}>

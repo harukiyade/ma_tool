@@ -12,23 +12,7 @@ import ArchiveIcon from "@mui/icons-material/Archive";
 import AddIcon from "@mui/icons-material/Add";
 import { ActionCard } from "../presentations/ActionCard";
 import styles from "./index.module.scss";
-
-const fabSx = {
-  position: "fixed",
-  bottom: 80,
-  right: 44,
-  bgcolor: "secondary.main",
-  color: "background.paper",
-  "&:hover": {
-    backgroundColor: "secondary.dark", // ホバー時の背景色
-  },
-};
-
-const bottomNavSx = {
-  "&.Mui-selected": {
-    color: "secondary.main", // フォーカス（選択）時の色
-  },
-};
+import { bottomNav, fab, paper } from "./sxStyles";
 
 export const ActionRecord = () => {
   const [navValue, setNavValue] = useState(0);
@@ -76,13 +60,10 @@ export const ActionRecord = () => {
         </div>
       </section>
       <footer>
-        <Fab sx={fabSx} color="primary" aria-label="add">
+        <Fab sx={fab} color="primary" aria-label="add">
           <AddIcon />
         </Fab>
-        <Paper
-          sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
-          elevation={3}
-        >
+        <Paper sx={paper} elevation={3}>
           <BottomNavigation
             showLabels
             value={navValue}
@@ -91,17 +72,17 @@ export const ActionRecord = () => {
             }}
           >
             <BottomNavigationAction
-              sx={bottomNavSx}
+              sx={bottomNav}
               label="Recents"
               icon={<RestoreIcon />}
             />
             <BottomNavigationAction
-              sx={bottomNavSx}
+              sx={bottomNav}
               label="Favorites"
               icon={<FavoriteIcon />}
             />
             <BottomNavigationAction
-              sx={bottomNavSx}
+              sx={bottomNav}
               label="Archive"
               icon={<ArchiveIcon />}
             />
