@@ -1,18 +1,20 @@
+up:
+	docker compose -f compose.yaml up
+
 up-dev:
 	docker compose up
 
 up-dev-only-back:
 	docker compose up python-app
 
-up:
-	docker compose -f compose.yaml up
-
 down:
 	docker compose down
 
-build-dev-no-cache:
-	docker compose build --no-cache
+build:
+	docker compose -f compose.yaml build
 
-build-prod-no-cache:
+build-no-cache:
 	docker compose -f compose.yaml build --no-cache
 
+build-dev-no-cache:
+	docker compose build --no-cache
