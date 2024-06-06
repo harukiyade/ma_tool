@@ -19,15 +19,15 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./backend:/workspace/backend
+      - ./backend/api:/backend
 
-  workspace:
-    container_name: workspace
-    build:
-      context: .
-    command: sh -c "while sleep 1000; do :; done"
-    depends_on:
-      - next-app
-      - python-app
-    volumes:
-      - .:/workspace
+  # workspace:
+  #   container_name: workspace
+  #   build:
+  #     context: .
+  #   command: sh -c "while sleep 1000; do :; done"
+  #   depends_on:
+  #     - next-app
+  #     - python-app
+  #   volumes:
+  #     - .:/workspace
