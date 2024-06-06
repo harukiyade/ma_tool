@@ -1,5 +1,4 @@
 services:
-  # frontend
   next-app:
     container_name: next-app
     build:
@@ -8,8 +7,9 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
+    volumes:
+      - ./frontend:/workspace/frontend
 
-  # backend
   python-app:
     container_name: python-app
     build:
@@ -19,4 +19,15 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./backend/api:/src
+      - ./backend:/workspace/backend
+
+  workspace:
+    container_name: workspace
+    build:
+      context: .
+    command: sh -c "while sleep 1000; do :; done"
+    depends_on:
+      - next-app
+      - python-app
+    volumes:
+      - .:/workspace
