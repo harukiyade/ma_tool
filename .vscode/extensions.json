@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "mgmcdermott.vscode-language-babel",
+    "vunguyentuan.vscode-css-variables",
+    "dsznajder.es7-react-js-snippets",
+    "ritwickdey.LiveServer",
+    "DavidAnson.vscode-markdownlint",
+    "foxundermoon.next-js",
+    "christian-kohler.npm-intellisense",
+    "rvest.vs-code-prettier-eslint",
+    "AvneeshAgarwal.react-nextjs-snippets",
+    "infeng.vscode-react-typescript",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "ms-python.debugpy"
+  ]
+}
