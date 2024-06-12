@@ -1,0 +1,873 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 7zhzet9l20ddf
+info:
+  title: companies
+  version: 1.0.0
+  description: 会社情報の検索、情報追加を行うためのAPI
+  contact:
+    name: albert-ma
+servers:
+  - url: 'http://localhost:8000'
+paths:
+  /companies:
+    parameters: []
+    post:
+      summary: 会社検索
+      operationId: company-search
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Companies'
+      description: |-
+        会社情報を検索する
+        クエリパラメータが多すぎるため、リクエストボディに検索パラメータを入れるPOSTメソッドを採用する。(値を更新するわけではないので、GETメソッドのように使用してください。)
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                properties:
+                  type: object
+                  properties:
+                    name:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    corporate_number:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    exist_flg:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    corporate_type:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    prefecture:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    city:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    capital_stock_from:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    capital_stock_to:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    employee_number_from:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    employee_number_to:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    founded_year:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    sales_area:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    business_item:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    unified_qualification:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    unified_qualification_sub01:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    unified_qualification_sub02:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    unified_qualification_sub03:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    unified_qualification_sub04:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    net_sales_summary_of_business_results_from:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    net_sales_summary_of_business_results_to:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    net_income_loss_summary_of_business_results_from:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    net_income_loss_summary_of_business_results_to:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    total_assets_summary_of_business_results_from:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    total_assets_summary_of_business_results_to:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    name_major_shareholders:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    average_continuous_service_years:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    average_age:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    month_average_predetermined_overtime_hours:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    female_workers_proportion:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    year:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    ministry:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    source:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    page:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                    limit:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                required:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+              x-examples:
+                Example 1:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    corporate_number:
+                      type: string
+                    exist_flg:
+                      type: string
+                    corporate_type:
+                      type: string
+                    prefecture:
+                      type: string
+                    city:
+                      type: string
+                    capital_stock_from:
+                      type: string
+                    capital_stock_to:
+                      type: string
+                    employee_number_from:
+                      type: string
+                    employee_number_to:
+                      type: string
+                    founded_year:
+                      type: string
+                    sales_area:
+                      type: string
+                    business_item:
+                      type: string
+                    unified_qualification:
+                      type: string
+                    unified_qualification_sub01:
+                      type: string
+                    unified_qualification_sub02:
+                      type: string
+                    unified_qualification_sub03:
+                      type: string
+                    unified_qualification_sub04:
+                      type: string
+                    net_sales_summary_of_business_results_from:
+                      type: string
+                    net_sales_summary_of_business_results_to:
+                      type: string
+                    net_income_loss_summary_of_business_results_from:
+                      type: string
+                    net_income_loss_summary_of_business_results_to:
+                      type: string
+                    total_assets_summary_of_business_results_from:
+                      type: string
+                    total_assets_summary_of_business_results_to:
+                      type: string
+                    name_major_shareholders:
+                      type: string
+                    average_continuous_service_years:
+                      type: string
+                    average_age:
+                      type: string
+                    month_average_predetermined_overtime_hours:
+                      type: string
+                    female_workers_proportion:
+                      type: string
+                    year:
+                      type: string
+                    ministry:
+                      type: string
+                    source:
+                      type: string
+                    page:
+                      type: string
+                    limit:
+                      type: string
+                  required: []
+        description: 会社情報の検索パラメータ
+      tags:
+        - companies
+components:
+  schemas:
+    Companies:
+      type: array
+      x-stoplight:
+        id: 42194bd7be78b
+      items:
+        $ref: '#/components/schemas/Company-full.v1'
+      title: Companies
+    Additional-info.v1:
+      x-stoplight:
+        id: 1xsw2xgx5g8th
+      title: additional-info.v1
+      type: object
+      description: 会社情報に追加する情報
+      properties:
+        comment:
+          type: string
+          x-stoplight:
+            id: jwpvxtv7w7pmj
+          description: 備考欄
+        tel:
+          type: string
+          x-stoplight:
+            id: teocc7iegzh5i
+        mail:
+          type: string
+          x-stoplight:
+            id: nyz3dlm2pkjkk
+        role:
+          type: string
+          x-stoplight:
+            id: 7xeb9xdsuc8jc
+        name:
+          type: string
+          x-stoplight:
+            id: 5qtbc98wnj62d
+    Company-full.v1:
+      title: companyFull.v1
+      x-stoplight:
+        id: n2nimkj1accy2
+      type: object
+      description: 1社分のすべての情報
+      x-internal: false
+      x-tags:
+        - companies
+      properties:
+        name:
+          type: string
+          x-stoplight:
+            id: ltxbjo1imybhn
+        nameEn:
+          type: string
+          x-stoplight:
+            id: fdqua0w1wfmbp
+        companyUrl:
+          type: string
+          x-stoplight:
+            id: 8epqmcstzhvvi
+        location:
+          type: string
+          x-stoplight:
+            id: 989v7e0mh09q0
+        corporateNumber:
+          type: string
+          x-stoplight:
+            id: hw1027a8fiisx
+        representativeName:
+          type: string
+          x-stoplight:
+            id: 9hhy904go2ue8
+        updateDate:
+          type: string
+          x-stoplight:
+            id: umu0nhwycs88e
+        businessItems:
+          type: string
+          x-stoplight:
+            id: ztjki36w95oyv
+        capitalStock:
+          type: string
+          x-stoplight:
+            id: ihi8carnew15b
+        businessSummary:
+          type: string
+          x-stoplight:
+            id: 5y5vgjex888hd
+        certification:
+          type: array
+          x-stoplight:
+            id: mwamsoyf6aoj3
+          items:
+            x-stoplight:
+              id: xyphm965q7gxp
+            type: object
+            properties:
+              category:
+                type: string
+                x-stoplight:
+                  id: a52gs74ljictt
+              dateOfApproval:
+                type: string
+                x-stoplight:
+                  id: fps5m44785isr
+              enterpriseScale:
+                type: string
+                x-stoplight:
+                  id: 1cqnpfxadofub
+              expirationDate:
+                type: string
+                x-stoplight:
+                  id: x4bg2bws3fpsa
+              governmentDepartments:
+                type: string
+                x-stoplight:
+                  id: 29pddd67tsf9h
+              target:
+                type: string
+                x-stoplight:
+                  id: 14fqrwdq00zl4
+              title:
+                type: string
+                x-stoplight:
+                  id: l8kdzetl4tumq
+        closeCause:
+          type: string
+          x-stoplight:
+            id: tar419teufe8x
+        closeDate:
+          type: string
+          x-stoplight:
+            id: 0tst947oyc8ir
+        commendation:
+          type: array
+          x-stoplight:
+            id: q6ys21cidacmz
+          items:
+            x-stoplight:
+              id: 3pjgvym1uriev
+            type: object
+            properties:
+              category:
+                type: string
+                x-stoplight:
+                  id: 8uh9qrreg114y
+              dateOfCommendation:
+                type: string
+                x-stoplight:
+                  id: 6o4rksn78a1m4
+              target:
+                type: string
+                x-stoplight:
+                  id: 9i7cv8v8f7z2q
+              governmentDepartments:
+                type: string
+                x-stoplight:
+                  id: 3fwkbbo82vj61
+              title:
+                type: string
+                x-stoplight:
+                  id: m56yun4es1p4y
+        companySizeFemale:
+          type: number
+          x-stoplight:
+            id: u3hj618c6lp6b
+        companySizeMale:
+          type: number
+          x-stoplight:
+            id: ia6o636wqlut9
+        dateOfEstablishment:
+          type: string
+          x-stoplight:
+            id: 587idzdwjabt2
+        employeeNumber:
+          type: number
+          x-stoplight:
+            id: ogiwkwkdv4ufv
+        foundingYear:
+          type: number
+          x-stoplight:
+            id: mjdifkj34r0w3
+        kana:
+          type: string
+          x-stoplight:
+            id: 0glcu56lodttq
+        numberOfActivity:
+          type: string
+          x-stoplight:
+            id: x1j7hd9ij0j7j
+        patent:
+          type: array
+          x-stoplight:
+            id: puyzmozzc79zz
+          items:
+            x-stoplight:
+              id: civxh6zk420ri
+            type: object
+            properties:
+              applicationDate:
+                type: string
+                x-stoplight:
+                  id: w4fmojcq3mc3h
+              applicationNumber:
+                type: string
+                x-stoplight:
+                  id: eup2f07xo2s72
+              classifications:
+                type: array
+                x-stoplight:
+                  id: oq8hruyqmr9bx
+                items:
+                  x-stoplight:
+                    id: 9lg89vu9fjgfi
+                  type: object
+              patentType:
+                type: string
+                x-stoplight:
+                  id: xn89cox9sz2ih
+              title:
+                type: string
+                x-stoplight:
+                  id: m94yigd03vwvr
+        postalCode:
+          type: string
+          x-stoplight:
+            id: w48ewbiw5apsy
+        procurement:
+          type: array
+          x-stoplight:
+            id: 8356loawwz38x
+          items:
+            x-stoplight:
+              id: x1gg1j6k30kqz
+            type: object
+            properties:
+              amount:
+                type: number
+                x-stoplight:
+                  id: f8en1u2pghyg9
+              dateOfOrder:
+                type: string
+                x-stoplight:
+                  id: 58im5q7sesn6y
+              governmentDepartments:
+                type: string
+                x-stoplight:
+                  id: v196hxbtfajwa
+              jointSignatures:
+                type: array
+                x-stoplight:
+                  id: am2vfpcyau6qf
+                items:
+                  x-stoplight:
+                    id: hseakm6q3r5rv
+                  type: string
+              title:
+                type: string
+                x-stoplight:
+                  id: cmpm9bj746mfj
+        qualificationGrade:
+          type: string
+          x-stoplight:
+            id: 0145tnibqreup
+        representativePosition:
+          type: string
+          x-stoplight:
+            id: 2uxwyvamvicw5
+        status:
+          type: string
+          x-stoplight:
+            id: ru1jzrasp4wlq
+        subsidy:
+          type: array
+          x-stoplight:
+            id: pjb21hgere3pj
+          items:
+            x-stoplight:
+              id: 3g4ks9clu8nsk
+            type: object
+            properties:
+              amount:
+                type: string
+                x-stoplight:
+                  id: pvya9f5jyrnt5
+              dateOfApproval:
+                type: string
+                x-stoplight:
+                  id: 9quw9twn0uexf
+              governmentDepartments:
+                type: string
+                x-stoplight:
+                  id: asmv5hwq0luc7
+              jointSignatures:
+                type: array
+                x-stoplight:
+                  id: fzuqvleeo1lxe
+                items:
+                  x-stoplight:
+                    id: c79i06x1qsmst
+                  type: string
+              note:
+                type: string
+                x-stoplight:
+                  id: qfrr33gucvjiu
+              subsidyResource:
+                type: string
+                x-stoplight:
+                  id: zrfk2gbgw3xm9
+              target:
+                type: string
+                x-stoplight:
+                  id: kpfezja61oz3g
+              title:
+                type: string
+                x-stoplight:
+                  id: wplbjo59oqzww
+        finance:
+          type: object
+          x-stoplight:
+            id: 5cdtol0i61bye
+          required:
+            - accountingStandards
+            - fiscalYearCoverPage
+            - majorShareholders
+            - managementIndex
+          properties:
+            accountingStandards:
+              type: string
+              x-stoplight:
+                id: oejz8yxye64mx
+            fiscalYearCoverPage:
+              type: string
+              x-stoplight:
+                id: apiwu4depaeab
+            majorShareholders:
+              type: array
+              x-stoplight:
+                id: 0duz7jih8jap9
+              items:
+                x-stoplight:
+                  id: jl1awqvsx4v48
+                type: object
+                properties:
+                  name:
+                    type: string
+                    x-stoplight:
+                      id: wg4gjg7eq4unt
+                  shareholdingRatio:
+                    type: number
+                    x-stoplight:
+                      id: x8fq3maxca8sq
+            managementIndex:
+              type: array
+              x-stoplight:
+                id: dz029judd0o66
+              items:
+                x-stoplight:
+                  id: pao718065andy
+                type: object
+                properties:
+                  capitalStockSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: 3ulghyukbj849
+                  capitalStockSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: jo9rx0ojibwzf
+                  grossOperatingRevenueSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: k85h3v2vmhhgy
+                  grossOperatingRevenueSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: 5h2naeabw8s9t
+                  netAssetsSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: vnok6zoxw0h5w
+                  netAssetsSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: wrny7cco0waqi
+                  netIncomeLossSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: hm6fqkzwicttl
+                  netIncomeLossSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: 53mudcqy1377j
+                  netPremiumsWrittenSummaryOfBusinessResultsIns:
+                    type: number
+                    x-stoplight:
+                      id: ro63k2yf1ygpp
+                  netPremiumsWrittenSummaryOfBusinessResultsInsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: n2ksd3pr7aecr
+                  netSalesSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: kug2tnkrb3ol1
+                  netSalesSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: eqkno6l44nmwk
+                  numberOfEmployees:
+                    type: number
+                    x-stoplight:
+                      id: j1z4ductandme
+                  numberOfEmployeesUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: 5c3f5h966816a
+                  operatingRevenue1SummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: u351gjvr9fckl
+                  operatingRevenue1SummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: e08tkbv2mile3
+                  operatingRevenue2SummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: 2eaacx6qh5xbi
+                  operatingRevenue2SummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: h4mkaojsje7x0
+                  ordinaryIncomeLossSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: 82brc4j6m6x6l
+                  ordinaryIncomeLossSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: uw3kp04tvscnk
+                  ordinaryIncomeSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: cir9hcm2hdlz3
+                  ordinaryIncomeSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: lfbzyuuhdhpsp
+                  period:
+                    type: string
+                    x-stoplight:
+                      id: mryuvaqr4y0px
+                  totalAssetsSummaryOfBusinessResults:
+                    type: number
+                    x-stoplight:
+                      id: wi199ig18pevy
+                  totalAssetsSummaryOfBusinessResultsUnitRef:
+                    type: string
+                    x-stoplight:
+                      id: yw9e1wicl7iip
+        workplaceInfo:
+          type: object
+          x-stoplight:
+            id: ndnz1orkyeinn
+          properties:
+            baseInfos:
+              type: object
+              x-stoplight:
+                id: u0n5ugykdib8y
+              properties:
+                averageAge:
+                  type: number
+                  x-stoplight:
+                    id: 6lnh1qdoounrq
+                averageContinuousServiceYears:
+                  type: number
+                  x-stoplight:
+                    id: nr1btygnjfnpw
+                averageContinuousServiceYearsFemale:
+                  type: number
+                  x-stoplight:
+                    id: dp1849sz04fwc
+                averageContinuousServiceYearsMale:
+                  type: number
+                  x-stoplight:
+                    id: 3dfg7sg5f7nto
+                ' averageContinuousServiceYearsType':
+                  type: number
+                  x-stoplight:
+                    id: 812gie343bt35
+                monthAveragePredeterminedOvertimeHours:
+                  type: string
+                  x-stoplight:
+                    id: 2kelhn52icb0j
+            compatibilityOfChildcareAndWork:
+              type: object
+              x-stoplight:
+                id: yvtwkbgdk6li8
+              properties:
+                maternityLeaveAcquisitionNum:
+                  type: number
+                  x-stoplight:
+                    id: izfoc5k6t8i9c
+                numberOfMaternityLeave:
+                  type: number
+                  x-stoplight:
+                    id: fds7tt3cgv08d
+                numberOfPaternityLeave:
+                  type: number
+                  x-stoplight:
+                    id: 6io8gqxp2iqu8
+                paternityLeaveAcquisitionNum:
+                  type: number
+                  x-stoplight:
+                    id: 5hzf8b5v67yrd
+            womenActivityInfos:
+              type: object
+              x-stoplight:
+                id: j122oa7zewukn
+              properties:
+                femaleShareOfManager:
+                  type: number
+                  x-stoplight:
+                    id: bek5b96026ipx
+                femaleShareOfOfficers:
+                  type: number
+                  x-stoplight:
+                    id: frdgsymo5codh
+                femaleWorkersProportion:
+                  type: number
+                  x-stoplight:
+                    id: 3f6uj9vit0p6a
+                femaleWorkersProportionType:
+                  type: string
+                  x-stoplight:
+                    id: 0uf0qv6f83pny
+                genderTotalOfManager:
+                  type: number
+                  x-stoplight:
+                    id: 1aub1403eomd1
+                genderTotalOfOfficers:
+                  type: number
+                  x-stoplight:
+                    id: jscaanb3idivo
+        additionalInfo:
+          $ref: '#/components/schemas/Additional-info.v1'
+          x-stoplight:
+            id: 1xsw2xgx5g8th
+      required:
+        - name
+        - nameEn
+        - companyUrl
+        - location
+        - corporateNumber
+        - representativeName
+        - updateDate
+        - businessItems
+        - capitalStock
+        - businessSummary
+        - certification
+        - closeCause
+        - closeDate
+        - commendation
+        - companySizeFemale
+        - companySizeMale
+        - dateOfEstablishment
+        - employeeNumber
+        - foundingYear
+        - kana
+        - numberOfActivity
+        - patent
+        - postalCode
+        - procurement
+        - qualificationGrade
+        - representativePosition
+        - status
+        - subsidy
+        - finance
+        - workplaceInfo
+tags:
+  - name: companies
