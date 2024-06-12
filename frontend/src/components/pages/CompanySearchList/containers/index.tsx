@@ -7,23 +7,18 @@ import { SearchPannel } from "../presentations/SearchPannel";
 import { Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { searchForm } from "./formSchema";
-
-export type Company = {
-  name: string;
-  id: string;
-  industry?: string;
-  address?: string;
-  establishmentYear?: number;
-  representativeName?: string;
-  capital?: number;
-};
+import { SearchParamType, searchForm } from "./formSchema";
 
 export const CompanySearchList = () => {
   /** 絞り込み検索のform管理 */
-  const methods = useForm({
+  const methods = useForm<SearchParamType>({
     resolver: zodResolver(searchForm),
-    defaultValues: { name: "" },
+    defaultValues: {
+      name: "",
+      companyId: "",
+      businessType: "",
+      prefecture: "",
+    },
   });
   const { getValues } = methods;
 
