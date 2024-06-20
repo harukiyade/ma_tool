@@ -14,30 +14,30 @@ export const CompanySearchList = () => {
   const methods = useForm<SearchParamType>({
     resolver: zodResolver(searchForm),
     defaultValues: {
-      name: "",
-      companyId: "",
-      businessType: "",
-      prefecture: "",
+      name: "パーソル",
+      companyId: "1234",
+      businessType: "IT",
+      prefecture: "東京",
     },
   });
   const { getValues } = methods;
 
   /** APIからのデータ取得 */
-  const { data, isLoading, isError } = useCompanySearchList({
+  // TODO: trigger parentみたいに任意のタイミングで検索を走らせたい。(初期表示時に空で検索が走ることを避けたい)
+  const { data, isError } = useCompanySearchList({
     name: getValues("name"),
+    corporate_number: getValues("companyId"),
+    corporate_type: getValues("businessType"),
+    prefecture: getValues("prefecture"),
   });
-
-  const corporateData = useMemo(() => {
-    return data && data["hojin-infos"];
-  }, [data]);
 
   return (
     <div className={styles.container}>
       <FormProvider {...methods}>
         <SearchPannel />
       </FormProvider>
-      {corporateData ? (
-        <CompanyList data={corporateData} />
+      {data ? (
+        <>{JSON.stringify(data)}</>
       ) : (
         <Typography>データが取得できませんでした。</Typography>
       )}

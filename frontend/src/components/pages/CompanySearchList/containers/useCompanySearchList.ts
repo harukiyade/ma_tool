@@ -1,35 +1,19 @@
 import useSWR from "swr";
-import { Corporate } from "@/api/corporate/ResTypes";
-import { CorporateQueryParams } from "@/api/corporate/ReqTypes";
+import axios from "axios";
+import { CorporateDetailList } from "@/api/corporate/ResTypes";
+import { CampanySearchParams } from "@/api/corporate/ReqTypes";
 
-const fetcher = async (url: string) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
+const fetcher = async (url: string, params: CampanySearchParams) => {
+  const response = await axios.post(url, params);
+  return response.data;
 };
 
-const useCompanySearchList = (params: CorporateQueryParams) => {
+const useCompanySearchList = (params: CampanySearchParams) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  // パラメータオブジェクトをクエリ文字列に変換する関数
-  const queryParamsToString = (params: CorporateQueryParams): string => {
-    const queryParams = new URLSearchParams();
-    Object.entries(params).forEach(([key, value]) => {
-      if (value !== undefined && value !== null && value !== "") {
-        queryParams.append(key, value);
-      }
-    });
-    return queryParams.toString();
-  };
-
-  /** クエリパラメータとして使用できる文字列に変換(パラメータはURLエンコード化される) */
-  const query = queryParamsToString(params);
-
-  const { data, error, isLoading } = useSWR<Corporate>(
-    `${backendUrl}/api/corporate?${query}`,
-    fetcher,
+  const { data, error } = useSWR<CorporateDetailList>(
+    { url: `${backendUrl}/api/companies`, params },
+    ({ url, params }) => fetcher(url, params),
     {
       onSuccess(data) {
         return data;
@@ -42,7 +26,6 @@ const useCompanySearchList = (params: CorporateQueryParams) => {
 
   return {
     data,
-    isLoading,
     isError: error,
   };
 };

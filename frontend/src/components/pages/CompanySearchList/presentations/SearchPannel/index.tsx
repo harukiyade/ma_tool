@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import { TextField } from "@/components/parts/TextField";
 import { Button } from "@/components/parts/Button";
 import styles from "./index.module.scss";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
 import { textFieldSx } from "@/components/themes/styleSx";
 import { SearchParamType } from "../../containers/formSchema";
 
@@ -13,14 +13,15 @@ const sidePannelSx = {
 };
 
 export const SearchPannel = () => {
-  const { control, getValues, setValue, trigger } =
+  const { control, getValues, setValue, handleSubmit, trigger } =
     useFormContext<SearchParamType>();
 
-  const handleBlur = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setValue("name", value);
-    // フォームの検証をトリガー
-    await trigger("name");
+  const onSubmit: SubmitHandler<SearchParamType> = (data) => {
+    setValue("name", data.name);
+    setValue("companyId", data.companyId);
+    setValue("prefecture", data.prefecture);
+    setValue("businessType", data.businessType);
+    trigger();
   };
 
   return (
@@ -34,7 +35,7 @@ export const SearchPannel = () => {
         <Typography variant="body2" fontWeight="bold">
           以下の条件で絞り込み中
         </Typography>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.searchWrapper}>
             <div className={styles.option}>
               <Typography component="p">会社名</Typography>
@@ -47,7 +48,6 @@ export const SearchPannel = () => {
                     label="会社名を入力"
                     value={getValues("name")}
                     size="small"
-                    onBlur={() => handleBlur}
                     sx={textFieldSx}
                   />
                 )}
@@ -66,7 +66,6 @@ export const SearchPannel = () => {
                     label="法人番号を入力"
                     value={getValues("companyId")}
                     size="small"
-                    onBlur={() => handleBlur}
                     sx={textFieldSx}
                   />
                 )}
@@ -85,7 +84,6 @@ export const SearchPannel = () => {
                     label="業界・業種を入力"
                     value={getValues("businessType")}
                     size="small"
-                    onBlur={() => handleBlur}
                     sx={textFieldSx}
                   />
                 )}
@@ -104,14 +102,15 @@ export const SearchPannel = () => {
                     label="都道府県を入力"
                     value={getValues("prefecture")}
                     size="small"
-                    onBlur={() => handleBlur}
                     sx={textFieldSx}
                   />
                 )}
               />
             </div>
           </div>
-          <Button variant="contained">検索</Button>
+          <Button variant="contained" type="submit">
+            検索
+          </Button>
         </form>
       </Box>
     </div>
