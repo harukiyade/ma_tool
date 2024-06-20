@@ -1,5 +1,5 @@
 /** corporate APIのリクエストパラメータ型 */
-export interface CorporateQueryParams {
+export interface CampanySearchParams {
   name: string;
   corporate_number?: string;
   exist_flg?: string;
