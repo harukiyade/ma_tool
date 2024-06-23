@@ -7,6 +7,9 @@ up-dev:
 up-dev-only-back:
 	docker compose up python-app
 
+up-build:
+	docker compose -f compose.yaml up --build
+
 down:
 	docker compose down
 

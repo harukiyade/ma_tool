@@ -1,5 +1,6 @@
 /** corporate APIのリクエストパラメータ型 */
-export interface CorporateQueryParams {
+// TODO: テーブル定義に合わせる
+export interface CampanySearchParams {
   name: string;
   corporate_number?: string;
   exist_flg?: string;
