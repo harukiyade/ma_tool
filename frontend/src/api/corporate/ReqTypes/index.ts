@@ -1,4 +1,5 @@
 /** corporate APIのリクエストパラメータ型 */
+// TODO: テーブル定義に合わせる
 export interface CampanySearchParams {
   name: string;
   corporate_number?: string;
