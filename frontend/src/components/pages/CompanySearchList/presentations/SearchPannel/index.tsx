@@ -25,13 +25,13 @@ export const SearchPannel = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <aside className={styles.container}>
       <div className={styles.inputWrapper}>
         <Button variant="contained" size="small">
           <Typography variant="button">検索条件を追加</Typography>
         </Button>
       </div>
-      <Box component="aside" sx={sidePannelSx} className={styles.box}>
+      <Box sx={sidePannelSx} className={styles.box}>
         <Typography variant="body2" fontWeight="bold">
           以下の条件で絞り込み中
         </Typography>
@@ -113,6 +113,6 @@ export const SearchPannel = () => {
           </Button>
         </form>
       </Box>
-    </div>
+    </aside>
   );
 };
