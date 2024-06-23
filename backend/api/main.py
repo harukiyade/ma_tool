@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException, Depends, Query, Request
+from fastapi import FastAPI, HTTPException, Depends,  Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import Optional, Dict, Any, List
+from typing import  Dict, Any, List
+from api.models.corporate import CorpQueryParams
 import requests
 import yaml
 
@@ -9,6 +9,7 @@ app = FastAPI()
 # TODO: api_tokenは環境ファイルに移動する。(firebase)
 api_token = "6IGiKYADLPU7YdsqRHPOtSWU8mJcyAgm"
 
+# フロントエンドとバックエンドの通信を許可(CORS対応)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -17,54 +18,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class QueryParams(BaseModel):
-    name: str = Query(..., description="The name of the company")
-    corporate_number: Optional[str] = Query(None, description="")
-    exist_flg: Optional[str] = Query(None, description="")
-    corporate_type: Optional[str] = Query(None, description="")
-    prefecture: Optional[str] = Query(None, description="")
-    city: Optional[str] = Query(None, description="")
-    capital_stock_from: Optional[str] = Query(None, description="")
-    capital_stock_to: Optional[str] = Query(None, description="")
-    employee_number_from: Optional[str] = Query(None, description="")
-    employee_number_to: Optional[str] = Query(None, description="")
-    founded_year: Optional[str] = Query(None, description="")
-    sales_area: Optional[str] = Query(None, description="")
-    business_item: Optional[str] = Query(None, description="")
-    unified_qualification: Optional[str] = Query(None, description="")
-    unified_qualification_sub01: Optional[str] = Query(None, description="")
-    unified_qualification_sub02: Optional[str] = Query(None, description="")
-    unified_qualification_sub03: Optional[str] = Query(None, description="")
-    unified_qualification_sub04: Optional[str] = Query(None, description="")
-    net_sales_summary_of_business_results_from: Optional[str] = Query(None, description="")
-    net_sales_summary_of_business_results_to: Optional[str] = Query(None, description="")
-    net_income_loss_summary_of_business_results_from: Optional[str] = Query(None, description="")
-    net_income_loss_summary_of_business_results_to: Optional[str] = Query(None, description="")
-    total_assets_summary_of_business_results_from: Optional[str] = Query(None, description="")
-    total_assets_summary_of_business_results_to: Optional[str] = Query(None, description="")
-    name_major_shareholders: Optional[str] = Query(None, description="")
-    average_continuous_service_years: Optional[str] = Query(None, description="")
-    average_age: Optional[str] = Query(None, description="")
-    month_average_predetermined_overtime_hours: Optional[str] = Query(None, description="")
-    female_workers_proportion: Optional[str] = Query(None, description="")
-    year: Optional[str] = Query(None, description="")
-    ministry: Optional[str] = Query(None, description="")
-    source: Optional[str] = Query(None, description="")
-    page: Optional[str] = Query(None, description="")
-    limit: Optional[str] = Query(None, description="")
-
 # FEに渡す用のAPI
 @app.post("/api/companies")
 async def get_companies(request: Request):
     params = await request.json()
     print("Received request:", params)  # デバッグ用ログ
-    query_params = QueryParams(**params)
+    query_params = CorpQueryParams(**params)
     results = query_db(query_params.dict(exclude_none=True))
     return results
 
 def query_db(db_params: Dict[str, Any]) -> List[Dict[str, Any]]:
     # TODO: DBからparamsの条件に合ったデータを取得するクエリを実行する
     
+    # TODO: リクエストのパラメータに応じたモックデータが返却できるように実装する。 (モックデータが10件くらい必要)
     sample_data = [
     {
       "corporate_number": "1010001084833",
@@ -97,7 +63,7 @@ async def get_openapi():
 
 # 外部APIの呼び出し
 @app.get("/api/corporate")
-async def get_corporate_data(params: QueryParams = Depends()):
+async def get_corporate_data(params: CorpQueryParams = Depends()):
     try:
         headers = {
             "Accept": "application/json",
