@@ -4,3 +4,6 @@ requests
 python-multipart
 aiofiles
 pydantic
+firebase-admin
+functions-framework
+mangum
