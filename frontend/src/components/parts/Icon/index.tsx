@@ -8,6 +8,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import CloseIcon from "@mui/icons-material/Close";
 
 export type IconType =
   | "list"
@@ -17,7 +18,8 @@ export type IconType =
   | "newTab"
   | "doNot"
   | "question"
-  | "check";
+  | "check"
+  | "close";
 type BaseProps = {
   icon: IconType;
 };
@@ -32,6 +34,7 @@ const iconMap = {
   doNot: DoNotDisturbIcon,
   question: HelpOutlineIcon,
   check: TaskAltIcon,
+  close: CloseIcon,
 };
 
 export const Icon: FC<Props> = ({ icon, color, fontSize }) => {
