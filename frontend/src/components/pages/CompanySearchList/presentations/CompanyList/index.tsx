@@ -26,7 +26,7 @@ const searchOptions = [
 ];
 
 export const CompanyList = ({ data }: Props) => {
-  const [option, setOption] = useState<string>("");
+  const [option, setOption] = useState<string>(""); //並び替えの制御
 
   const handleOption = (e: SelectChangeEvent) => {
     setOption(e.target.value);
