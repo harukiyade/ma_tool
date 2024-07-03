@@ -1,15 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import ArchiveIcon from "@mui/icons-material/Archive";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import RestoreIcon from "@mui/icons-material/Restore";
 import {
   BottomNavigation,
   BottomNavigationAction,
   Fab,
   Paper,
 } from "@mui/material";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import AddIcon from "@mui/icons-material/Add";
+import React, { useState } from "react";
 import { ActionCard } from "../presentations/ActionCard";
 import styles from "./index.module.scss";
 import { bottomNav, fab, paper } from "./sxStyles";

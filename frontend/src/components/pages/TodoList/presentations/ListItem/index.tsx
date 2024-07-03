@@ -1,4 +1,3 @@
-import React from "react";
 import {
   ListItem as MUIListItem,
   ListItemButton,
@@ -6,6 +5,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import React from "react";
 import { Icon, IconType } from "@/components/parts/Icon";
 
 type Props = {

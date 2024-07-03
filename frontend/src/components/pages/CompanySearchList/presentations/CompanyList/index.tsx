@@ -1,14 +1,14 @@
-import React, { useState } from "react";
 import {
   Divider,
   List as MUIList,
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
+import React, { useState } from "react";
 import { ListItem } from "../ListItem";
 import styles from "./index.module.scss";
-import { Select } from "@/components/parts/Select";
 import { CorporateDetailList } from "@/api/corporate/ResTypes";
+import { Select } from "@/components/parts/Select";
 
 type Props = {
   data: CorporateDetailList;

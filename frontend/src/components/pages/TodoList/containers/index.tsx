@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./index.module.scss";
 import { Box, Typography } from "@mui/material";
-import { SidePannel } from "../presentations/SidePannel";
+import React from "react";
 import { MainList } from "../presentations/MainList";
+import { SidePannel } from "../presentations/SidePannel";
+import styles from "./index.module.scss";
 
 /** MUIBoxのプロパティ指定 */
 const BoxSx = {

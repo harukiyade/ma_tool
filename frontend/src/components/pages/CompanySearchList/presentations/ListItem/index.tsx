@@ -1,4 +1,3 @@
-import React, { FC, useState } from "react";
 import {
   Divider,
   IconButton,
@@ -6,13 +5,14 @@ import {
   Typography,
   Tooltip,
 } from "@mui/material";
-import { Icon } from "@/components/parts/Icon";
+import Link from "next/link";
+import React, { FC, useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import styles from "./index.module.scss";
 import { CorporateDetail } from "@/api/corporate/ResTypes";
-import Link from "next/link";
-import { URL_VALUES } from "@/libs/constants/url";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import { Icon } from "@/components/parts/Icon";
 import { Snackbar } from "@/components/parts/Snackbar";
+import { URL_VALUES } from "@/libs/constants/url";
 
 type Props = {
   company: CorporateDetail;

@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { TextField } from "@/components/parts/TextField";
-import { Button } from "@/components/parts/Button";
-import styles from "./index.module.scss";
+import React, { FC, useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
-import { textFieldSx } from "@/components/themes/styleSx";
 import { SearchParamType } from "../../containers/formSchema";
 import { CompanySearchOverlay } from "../CompanySearchOverlay";
+import styles from "./index.module.scss";
+import { Button } from "@/components/parts/Button";
+import { TextField } from "@/components/parts/TextField";
+import { textFieldSx } from "@/components/themes/styleSx";
 
 const sidePannelSx = {
   borderRadius: 2,
