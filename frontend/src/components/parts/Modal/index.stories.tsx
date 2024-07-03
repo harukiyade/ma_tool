@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
 
-import { Modal } from "./index";
 import { Button } from "../Button";
+import { Modal } from "./index";
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof Modal> = {

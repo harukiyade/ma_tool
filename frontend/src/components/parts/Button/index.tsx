@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { Button as MUIButton, ButtonProps } from "@mui/material";
+import React, { FC } from "react";
 
 type BaseProps = {
   variant: string;

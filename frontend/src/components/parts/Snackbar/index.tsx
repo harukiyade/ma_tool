@@ -1,9 +1,9 @@
-import React, { FC } from "react";
 import {
   IconButton,
   Snackbar as MUISnackbar,
   SnackbarProps,
 } from "@mui/material";
+import React, { FC } from "react";
 import { Icon } from "../Icon";
 
 type Props = {

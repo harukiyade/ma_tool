@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Icon } from "../Icon";
+import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 import {
   AppBar,
   Avatar,
@@ -15,10 +14,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { useRouter, usePathname } from "next/navigation";
+import React, { useState } from "react";
+import { Icon } from "../Icon";
 import styles from "./index.module.scss";
 import { tabTheme } from "@/components/themes";
-import { Logout, PersonAdd, Settings } from "@mui/icons-material";
-import { useRouter, usePathname } from "next/navigation";
 import { URL_VALUES } from "@/libs/constants/url";
 
 export default function Header() {

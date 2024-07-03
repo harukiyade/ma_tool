@@ -1,9 +1,9 @@
 "use client";
-import React, { FC } from "react";
-import styles from "./index.module.scss";
 import { ThemeProvider } from "@mui/material";
-import { defaultTheme } from "@/components/themes";
+import React, { FC } from "react";
 import Header from "../Header";
+import styles from "./index.module.scss";
+import { defaultTheme } from "@/components/themes";
 
 type Props = {
   children: React.ReactNode;

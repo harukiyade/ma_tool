@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import { IconProps } from "@mui/material/Icon";
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import SearchIcon from "@mui/icons-material/Search";
 import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import SearchIcon from "@mui/icons-material/Search";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
-import CloseIcon from "@mui/icons-material/Close";
+import { IconProps } from "@mui/material/Icon";
+import React, { FC } from "react";
 
 export type IconType =
   | "list"

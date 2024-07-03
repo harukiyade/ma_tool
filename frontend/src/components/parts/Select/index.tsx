@@ -1,9 +1,9 @@
-import React, { forwardRef } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import { Select as MUISelect, SelectChangeEvent } from "@mui/material";
 import { FormHelperText } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import React, { forwardRef } from "react";
 
 type BaseProps = {
   label: string;
