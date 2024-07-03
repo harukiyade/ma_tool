@@ -18,6 +18,12 @@
         ],
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5"
+      }
     ]
   }
 }
