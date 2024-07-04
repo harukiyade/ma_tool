@@ -16,10 +16,10 @@ import {
 } from "@mui/material";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { Icon } from "../Icon";
-import styles from "./index.module.scss";
 import { tabTheme } from "@/components/themes";
 import { URL_VALUES } from "@/libs/constants/url";
+import { Icon } from "../Icon";
+import styles from "./index.module.scss";
 
 export default function Header() {
   const router = useRouter();

@@ -5,10 +5,10 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { ListItem } from "../ListItem";
-import styles from "./index.module.scss";
 import { CorporateDetailList } from "@/api/corporate/ResTypes";
 import { Select } from "@/components/parts/Select";
+import { ListItem } from "../ListItem";
+import styles from "./index.module.scss";
 
 type Props = {
   data: CorporateDetailList;

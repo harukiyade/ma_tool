@@ -1,13 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
-import {
-  AdditionalInfoFormType,
-  ExtraInfoFormType,
-} from "../../containers/formSchema";
-import { AdditionalInfoInputOverlay } from "../AdditionalInfoInputOverlay";
-import styles from "./index.module.scss";
-import { box } from "./sxStyles";
 import { Button } from "@/components/parts/Button";
 import { TextField } from "@/components/parts/TextField";
 import {
@@ -15,6 +8,13 @@ import {
   buttonSxOutlined,
   textFieldSecondarySx,
 } from "@/components/themes/styleSx";
+import {
+  AdditionalInfoFormType,
+  ExtraInfoFormType,
+} from "../../containers/formSchema";
+import { AdditionalInfoInputOverlay } from "../AdditionalInfoInputOverlay";
+import styles from "./index.module.scss";
+import { box } from "./sxStyles";
 
 type DataDisplayType = {
   title: string;

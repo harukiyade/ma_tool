@@ -6,16 +6,16 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import React from "react";
 import { Controller, SubmitHandler, UseFormReturn } from "react-hook-form";
-import { AdditionalInfoFormType } from "../../containers/formSchema";
-import { AdditionalDataDisplayType } from "../BasicInfo";
-import styles from "./index.module.scss";
-import { dialogPaper, iconButton } from "./sxStyles";
 import { Button } from "@/components/parts/Button";
 import { TextField } from "@/components/parts/TextField";
 import {
   buttonSxOutlined,
   textFieldSecondarySx,
 } from "@/components/themes/styleSx";
+import { AdditionalInfoFormType } from "../../containers/formSchema";
+import { AdditionalDataDisplayType } from "../BasicInfo";
+import styles from "./index.module.scss";
+import { dialogPaper, iconButton } from "./sxStyles";
 
 type Props = {
   isOpen: boolean;

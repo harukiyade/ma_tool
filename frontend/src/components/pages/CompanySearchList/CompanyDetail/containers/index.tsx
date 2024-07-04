@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { FormProvider } from "react-hook-form";
+import { Icon } from "@/components/parts/Icon";
+import { TabContentFrame } from "@/components/parts/TabContentFrame";
+import { tabTheme } from "@/components/themes";
 import { AntisocialCheck } from "../presentations/AntisocialCheck";
 import { BasicInfo } from "../presentations/BasicInfo";
 import { Documents } from "../presentations/Documents";
@@ -17,9 +20,6 @@ import { Staff } from "../presentations/Staff";
 import styles from "./index.module.scss";
 import { appBar, headerBox } from "./sxStyles";
 import { useFormHandler } from "./useFormHandler";
-import { Icon } from "@/components/parts/Icon";
-import { TabContentFrame } from "@/components/parts/TabContentFrame";
-import { tabTheme } from "@/components/themes";
 
 type Props = {
   id: string;

@@ -8,11 +8,11 @@ import {
 import Link from "next/link";
 import React, { FC, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import styles from "./index.module.scss";
 import { CorporateDetail } from "@/api/corporate/ResTypes";
 import { Icon } from "@/components/parts/Icon";
 import { Snackbar } from "@/components/parts/Snackbar";
 import { URL_VALUES } from "@/libs/constants/url";
+import styles from "./index.module.scss";
 
 type Props = {
   company: CorporateDetail;
