@@ -1,6 +1,4 @@
 "use client";
-import React, { useState } from "react";
-import styles from "./index.module.scss";
 import {
   AppBar,
   Box,
@@ -9,17 +7,19 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import { tabTheme } from "@/components/themes";
-import { TabContentFrame } from "@/components/parts/TabContentFrame";
-import { Sourcing } from "../presentations/Sourcing";
-import { AntisocialCheck } from "../presentations/AntisocialCheck";
-import { Staff } from "../presentations/Staff";
-import { Documents } from "../presentations/Documents";
-import { BasicInfo } from "../presentations/BasicInfo";
-import { Icon } from "@/components/parts/Icon";
-import { useFormHandler } from "./useFormHandler";
+import React, { useState } from "react";
 import { FormProvider } from "react-hook-form";
+import { Icon } from "@/components/parts/Icon";
+import { TabContentFrame } from "@/components/parts/TabContentFrame";
+import { tabTheme } from "@/components/themes";
+import { AntisocialCheck } from "../presentations/AntisocialCheck";
+import { BasicInfo } from "../presentations/BasicInfo";
+import { Documents } from "../presentations/Documents";
+import { Sourcing } from "../presentations/Sourcing";
+import { Staff } from "../presentations/Staff";
+import styles from "./index.module.scss";
 import { appBar, headerBox } from "./sxStyles";
+import { useFormHandler } from "./useFormHandler";
 
 type Props = {
   id: string;

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends,  Request
 from fastapi.middleware.cors import CORSMiddleware
 from typing import  Dict, Any, List
-from api.models.corporate import CorpQueryParams
+from models.corporate import CorpQueryParams
 import requests
 import yaml
 

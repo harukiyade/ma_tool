@@ -1,7 +1,7 @@
-import React from "react";
 import { Box, Divider, List } from "@mui/material";
-import styles from "./index.module.scss";
+import React from "react";
 import { ListItem } from "../ListItem";
+import styles from "./index.module.scss";
 import { sidePannel } from "./sxStyles";
 
 export const SidePannel = () => {

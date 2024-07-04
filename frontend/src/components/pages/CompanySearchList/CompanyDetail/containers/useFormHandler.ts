@@ -1,3 +1,4 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
   AdditionalInfoFormType,
@@ -5,7 +6,6 @@ import {
   additionalForm,
   extraInfoForm,
 } from "./formSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 export const useFormHandler = () => {
   const extraInfoFormMethods = useForm<ExtraInfoFormType>({

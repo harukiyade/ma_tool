@@ -1,13 +1,14 @@
-import React, { FC } from "react";
-import { IconProps } from "@mui/material/Icon";
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import SearchIcon from "@mui/icons-material/Search";
 import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import SearchIcon from "@mui/icons-material/Search";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import { IconProps } from "@mui/material/Icon";
+import React, { FC } from "react";
 
 export type IconType =
   | "list"
@@ -17,7 +18,8 @@ export type IconType =
   | "newTab"
   | "doNot"
   | "question"
-  | "check";
+  | "check"
+  | "close";
 type BaseProps = {
   icon: IconType;
 };
@@ -32,6 +34,7 @@ const iconMap = {
   doNot: DoNotDisturbIcon,
   question: HelpOutlineIcon,
   check: TaskAltIcon,
+  close: CloseIcon,
 };
 
 export const Icon: FC<Props> = ({ icon, color, fontSize }) => {

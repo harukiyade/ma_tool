@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Divider,
@@ -7,6 +6,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import React from "react";
 import styles from "./index.module.scss";
 import { innerBox } from "./sxStyles";
 

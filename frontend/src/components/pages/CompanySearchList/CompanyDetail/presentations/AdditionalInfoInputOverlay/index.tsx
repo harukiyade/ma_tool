@@ -1,20 +1,20 @@
-import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import { IconButton, Typography } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import React from "react";
 import { Controller, SubmitHandler, UseFormReturn } from "react-hook-form";
-import { AdditionalInfoFormType } from "../../containers/formSchema";
-import { AdditionalDataDisplayType } from "../BasicInfo";
-import { IconButton, Typography } from "@mui/material";
-import styles from "./index.module.scss";
+import { Button } from "@/components/parts/Button";
 import { TextField } from "@/components/parts/TextField";
 import {
   buttonSxOutlined,
   textFieldSecondarySx,
 } from "@/components/themes/styleSx";
-import CloseIcon from "@mui/icons-material/Close";
-import { Button } from "@/components/parts/Button";
+import { AdditionalInfoFormType } from "../../containers/formSchema";
+import { AdditionalDataDisplayType } from "../BasicInfo";
+import styles from "./index.module.scss";
 import { dialogPaper, iconButton } from "./sxStyles";
 
 type Props = {
