@@ -5,6 +5,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "no-unused-vars": "warn",
     "import/order": [
       "error",
       {
