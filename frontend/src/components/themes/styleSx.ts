@@ -20,7 +20,11 @@ export const textFieldSecondarySx = {
   },
 };
 
-export const buttonSxContained = {
+export const buttonSxTextSecondary = {
+  color: "secondary.main",
+};
+
+export const buttonSxContainedSecondary = {
   borderColor: "secondary.main",
   backgroundColor: "secondary.main", // 通常時の背景色
   "&:hover": {
@@ -28,11 +32,18 @@ export const buttonSxContained = {
   },
 };
 
-export const buttonSxOutlined = {
+export const buttonSxOutlinedSecondary = {
   color: "secondary.main",
   borderColor: "secondary.main",
   "&:hover": {
     borderColor: "secondary.dark",
     color: "secondary.dark",
+  },
+};
+
+export const checkboxSxSecondary = {
+  // color: "secondary.main",
+  "&.Mui-checked": {
+    color: "secondary.main",
   },
 };
