@@ -4,8 +4,8 @@ import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
 import { Button } from "@/components/parts/Button";
 import { TextField } from "@/components/parts/TextField";
 import {
-  buttonSxContained,
-  buttonSxOutlined,
+  buttonSxContainedSecondary,
+  buttonSxOutlinedSecondary,
   textFieldSecondarySx,
 } from "@/components/themes/styleSx";
 import {
@@ -137,7 +137,7 @@ export const BasicInfo = () => {
             size="small"
             variant="outlined"
             onClick={() => setShowAdditionalInput(true)}
-            sx={buttonSxOutlined}
+            sx={buttonSxOutlinedSecondary}
           >
             編集
           </Button>
@@ -177,7 +177,7 @@ export const BasicInfo = () => {
             size="small"
             variant="outlined"
             onClick={() => setShowExtraInput(true)}
-            sx={buttonSxOutlined}
+            sx={buttonSxOutlinedSecondary}
           >
             編集
           </Button>
@@ -206,7 +206,7 @@ export const BasicInfo = () => {
             <div className={styles.button}>
               <Button
                 variant="contained"
-                sx={buttonSxContained}
+                sx={buttonSxContainedSecondary}
                 type="submit"
                 onClick={() => setShowExtraInput(false)}
               >
