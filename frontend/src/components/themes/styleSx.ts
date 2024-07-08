@@ -41,6 +41,15 @@ export const buttonSxOutlinedSecondary = {
   },
 };
 
+export const buttonSxOutlinedText = {
+  color: "text.secondary",
+  borderColor: "text.secondary",
+  "&:hover": {
+    borderColor: "text.primary",
+    color: "text.primary",
+  },
+};
+
 export const checkboxSxSecondary = {
   // color: "secondary.main",
   "&.Mui-checked": {

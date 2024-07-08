@@ -1,12 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import React, { FC, useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
 import { Button } from "@/components/parts/Button";
+import { Icon } from "@/components/parts/Icon";
 import { TextField } from "@/components/parts/TextField";
-import { textFieldSx } from "@/components/themes/styleSx";
+import { buttonSxOutlinedText, textFieldSx } from "@/components/themes/styleSx";
 import { SearchParamType } from "../../containers/formSchema";
 import { CompanySearchOverlay } from "../CompanySearchOverlay";
 import styles from "./index.module.scss";
+import { ddSx } from "./styleSx";
 
 const sidePannelSx = {
   borderRadius: 2,
@@ -40,9 +42,67 @@ export const SearchPannel: FC = () => {
           </Button>
         </div>
         <Box sx={sidePannelSx} className={styles.box}>
-          <Typography variant="body2" fontWeight="bold">
-            以下の条件で絞り込み中
-          </Typography>
+          <div className={styles.titleWrapper}>
+            <Typography variant="body2" fontWeight="bold" color="GrayText">
+              現在の検索条件
+            </Typography>
+            <Button
+              variant="outlined"
+              size="small"
+              fullWidth={false}
+              sx={buttonSxOutlinedText}
+            >
+              <Icon icon="bookmark" fontSize="small" />
+              条件保存
+            </Button>
+          </div>
+          <div className={styles.conditionWrapper}>
+            <dl className={styles.condition}>
+              <Typography component="dt">売上高</Typography>
+              <Typography
+                component="dd"
+                variant="caption"
+                sx={ddSx}
+                className={styles.conditionData}
+              >
+                1億～5億
+              </Typography>
+            </dl>
+            <dl className={styles.condition}>
+              <Typography component="dt">正社員数</Typography>
+              <Typography
+                component="dd"
+                variant="caption"
+                sx={ddSx}
+                className={styles.conditionData}
+              >
+                100人～200人
+              </Typography>
+            </dl>
+            <dl className={styles.condition}>
+              <Typography component="dt">設立年数</Typography>
+              <Typography
+                component="dd"
+                variant="caption"
+                sx={ddSx}
+                className={styles.conditionData}
+              >
+                5年～10年
+              </Typography>
+            </dl>
+            <dl className={styles.condition}>
+              <Typography component="dt">資本金</Typography>
+              <Typography
+                component="dd"
+                variant="caption"
+                sx={ddSx}
+                className={styles.conditionData}
+              >
+                5000万～3億
+              </Typography>
+            </dl>
+          </div>
+          <Divider />
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.searchWrapper}>
               <div className={styles.option}>
