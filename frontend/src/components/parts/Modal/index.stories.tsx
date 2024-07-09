@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button } from "../Checkbox";
+import { Button } from "../Button";
 import { Modal } from "./index";
 import type { Meta, StoryObj } from "@storybook/react";
 

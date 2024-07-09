@@ -25,7 +25,7 @@ export const CompanySearchList = () => {
 
   /** APIからのデータ取得 */
   // TODO: trigger parentみたいに任意のタイミングで検索を走らせたい。(初期表示時に空で検索が走ることを避けたい)
-  const { data, isError } = useCompanySearchList({
+  const { data /**isError*/ } = useCompanySearchList({
     name: getValues("name"),
     corporate_number: getValues("companyId"),
     corporate_type: getValues("businessType"),

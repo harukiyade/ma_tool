@@ -12,6 +12,7 @@ type BaseProps = {
   options: Array<string | number>;
   /**MenuItemに'分'などを付け足したいときに使用 */
   menuItemText?: string;
+  // eslint-disable-next-line no-unused-vars
   onChange: (event: SelectChangeEvent) => void;
   error?: boolean;
   errorMessage?: string;

@@ -7,7 +7,8 @@ type BaseProps = {
   label: string;
   variant?: Variant;
   value?: string;
-  onChange: (value: string) => void; // 追加
+  // eslint-disable-next-line no-unused-vars
+  onChange: (value: string) => void;
   error?: boolean;
   errorMessage?: string;
   size?: "small" | "medium";
