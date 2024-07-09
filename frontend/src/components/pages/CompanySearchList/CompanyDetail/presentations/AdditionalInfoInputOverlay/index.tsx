@@ -9,7 +9,7 @@ import { Controller, SubmitHandler, UseFormReturn } from "react-hook-form";
 import { Button } from "@/components/parts/Button";
 import { TextField } from "@/components/parts/TextField";
 import {
-  buttonSxOutlined,
+  buttonSxOutlinedSecondary,
   textFieldSecondarySx,
 } from "@/components/themes/styleSx";
 import { AdditionalInfoFormType } from "../../containers/formSchema";
@@ -77,10 +77,14 @@ export const AdditionalInfoInputOverlay = ({
         })}
       </DialogContent>
       <DialogActions className={styles.buttonWrapper}>
-        <Button variant="text" onClick={handleClose} sx={buttonSxOutlined}>
+        <Button
+          variant="text"
+          onClick={handleClose}
+          sx={buttonSxOutlinedSecondary}
+        >
           戻る
         </Button>
-        <Button variant="text" type="submit" sx={buttonSxOutlined}>
+        <Button variant="text" type="submit" sx={buttonSxOutlinedSecondary}>
           確定
         </Button>
       </DialogActions>
