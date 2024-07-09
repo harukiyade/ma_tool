@@ -15,10 +15,10 @@ export const CompanySearchList = () => {
   const methods = useForm<SearchParamType>({
     resolver: zodResolver(searchForm),
     defaultValues: {
-      name: "パーソル",
-      companyId: "1234",
-      businessType: "IT",
-      prefecture: "東京",
+      name: "",
+      companyId: "",
+      businessType: "",
+      prefecture: "",
     },
   });
   const { getValues } = methods;

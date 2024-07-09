@@ -3,10 +3,12 @@ import React, { FC, useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
 import { Button } from "@/components/parts/Button";
 import { Icon } from "@/components/parts/Icon";
+import { Select } from "@/components/parts/Select";
 import { TextField } from "@/components/parts/TextField";
 import { buttonSxOutlinedText, textFieldSx } from "@/components/themes/styleSx";
 import { SearchParamType } from "../../containers/formSchema";
 import { CompanySearchOverlay } from "../CompanySearchOverlay";
+import { businessTypes, prefectures } from "./constants";
 import styles from "./index.module.scss";
 import { ddSx } from "./styleSx";
 
@@ -59,47 +61,65 @@ export const SearchPannel: FC = () => {
           <div className={styles.conditionWrapper}>
             <dl className={styles.condition}>
               <Typography component="dt">売上高</Typography>
-              <Typography
-                component="dd"
-                variant="caption"
-                sx={ddSx}
-                className={styles.conditionData}
-              >
-                1億～5億
-              </Typography>
+              <dd className={styles.conditionDataWrapper}>
+                <Typography
+                  variant="caption"
+                  sx={ddSx}
+                  className={styles.conditionData}
+                >
+                  1億～5億
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={ddSx}
+                  className={styles.conditionData}
+                >
+                  5億～10億
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={ddSx}
+                  className={styles.conditionData}
+                >
+                  50億～100億
+                </Typography>
+              </dd>
             </dl>
             <dl className={styles.condition}>
               <Typography component="dt">正社員数</Typography>
-              <Typography
-                component="dd"
-                variant="caption"
-                sx={ddSx}
-                className={styles.conditionData}
-              >
-                100人～200人
-              </Typography>
+              <dd className={styles.conditionDataWrapper}>
+                <Typography
+                  variant="caption"
+                  sx={ddSx}
+                  className={styles.conditionData}
+                >
+                  100人～200人
+                </Typography>
+              </dd>
             </dl>
             <dl className={styles.condition}>
               <Typography component="dt">設立年数</Typography>
-              <Typography
-                component="dd"
-                variant="caption"
-                sx={ddSx}
-                className={styles.conditionData}
-              >
-                5年～10年
-              </Typography>
+              <dd className={styles.conditionDataWrapper}>
+                <Typography
+                  variant="caption"
+                  sx={ddSx}
+                  className={styles.conditionData}
+                >
+                  5年～10年
+                </Typography>
+              </dd>
             </dl>
             <dl className={styles.condition}>
               <Typography component="dt">資本金</Typography>
-              <Typography
-                component="dd"
-                variant="caption"
-                sx={ddSx}
-                className={styles.conditionData}
-              >
-                5000万～3億
-              </Typography>
+              <dd className={styles.conditionDataWrapper}>
+                <Typography
+                  variant="caption"
+                  sx={ddSx}
+                  className={styles.conditionData}
+                >
+                  5000万～3億
+                </Typography>
+              </dd>
             </dl>
           </div>
           <Divider />
@@ -147,12 +167,16 @@ export const SearchPannel: FC = () => {
                   control={control}
                   name="businessType"
                   render={({ field }) => (
-                    <TextField
+                    <Select
                       {...field}
                       label="業界・業種を入力"
-                      value={getValues("businessType")}
+                      value={
+                        getValues("businessType") === "未選択"
+                          ? ""
+                          : getValues("businessType")
+                      }
+                      options={businessTypes}
                       size="small"
-                      sx={textFieldSx}
                     />
                   )}
                 />
@@ -165,12 +189,16 @@ export const SearchPannel: FC = () => {
                   control={control}
                   name="prefecture"
                   render={({ field }) => (
-                    <TextField
+                    <Select
                       {...field}
                       label="都道府県を入力"
-                      value={getValues("prefecture")}
+                      value={
+                        getValues("prefecture") === "未選択"
+                          ? ""
+                          : getValues("prefecture")
+                      }
+                      options={prefectures}
                       size="small"
-                      sx={textFieldSx}
                     />
                   )}
                 />

@@ -32,12 +32,22 @@
       .condition {
         display: flex;
         gap: var(--spacing-3);
-        align-items: center;
 
-        .conditionData {
-          border-radius: 999px;
-          padding: var(--spacing-1);
-          font-size: var(--fontSizeXXS);
+        > dt {
+          width: 30%;
+        }
+
+        .conditionDataWrapper {
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-2);
+
+          .conditionData {
+            border-radius: 999px;
+            padding: var(--spacing-1);
+            font-size: var(--fontSizeXXS);
+            text-align: center;
+          }
         }
       }
     }
