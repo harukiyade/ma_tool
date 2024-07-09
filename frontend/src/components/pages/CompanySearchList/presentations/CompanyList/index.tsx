@@ -15,6 +15,7 @@ type Props = {
 };
 
 const searchOptions = [
+  "未選択",
   "更新日新しい順",
   "更新日古い順",
   "資本金多い順",
@@ -29,7 +30,8 @@ export const CompanyList = ({ data }: Props) => {
   const [option, setOption] = useState<string>(""); //並び替えの制御
 
   const handleOption = (e: SelectChangeEvent) => {
-    setOption(e.target.value);
+    const value = e.target.value === "未選択" ? "" : e.target.value;
+    setOption(value);
   };
 
   return (
@@ -48,7 +50,7 @@ export const CompanyList = ({ data }: Props) => {
             label={"並び替え"}
             value={option}
             options={searchOptions}
-            onChange={() => handleOption}
+            onChange={handleOption}
             size="small"
           />
         </div>
