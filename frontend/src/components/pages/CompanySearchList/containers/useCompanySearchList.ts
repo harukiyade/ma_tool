@@ -1,5 +1,6 @@
 import axios from "axios";
-import useSWR from "swr";
+import { useState } from "react";
+import useSWR, { mutate } from "swr";
 import { CampanySearchParams } from "@/api/corporate/ReqTypes";
 import { CorporateDetailList } from "@/api/corporate/ResTypes";
 
@@ -9,11 +10,16 @@ const fetcher = async (url: string, params: CampanySearchParams) => {
 };
 
 const useCompanySearchList = (params: CampanySearchParams) => {
+  /** バックエンドAPIへのエンドポイント */
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  const { data, error } = useSWR<CorporateDetailList>(
-    { url: `${backendUrl}/api/companies`, params },
-    ({ url, params }) => fetcher(url, params),
+  /** 検索パラメータの更新を検知するstate */
+  const [apiParams, setApiParams] = useState<CampanySearchParams>(params);
+
+  /** 初期データ取得API */
+  const { data, error, isLoading } = useSWR<CorporateDetailList>(
+    [`${backendUrl}/api/companies`, apiParams],
+    ([url]) => fetcher(url, apiParams),
     {
       onSuccess(data) {
         return data;
@@ -24,9 +30,18 @@ const useCompanySearchList = (params: CampanySearchParams) => {
     }
   );
 
+  /** 検索ボタン押下時に検索を走らせる */
+  const handleSearch = (params: CampanySearchParams) => {
+    console.log("mutate triggered", params);
+    setApiParams(params);
+    mutate([`${backendUrl}/api/companies`, apiParams]);
+  };
+
   return {
     data,
     isError: error,
+    isLoading,
+    handleSearch,
   };
 };
 
