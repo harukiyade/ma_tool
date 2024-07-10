@@ -11,22 +11,18 @@ const fetcher = async (url: string, params: CampanySearchParams) => {
 const useCompanySearchList = (params: CampanySearchParams) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  // TODO: 消す
-  const data = "SWRからのデータ";
-  const error = "SWRのエラー";
-
-  // const { data, error } = useSWR<CorporateDetailList>(
-  //   { url: `${backendUrl}/api/companies`, params },
-  //   ({ url, params }) => fetcher(url, params),
-  //   {
-  //     onSuccess(data) {
-  //       return data;
-  //     },
-  //     onError(error) {
-  //       console.log("swr returns error", error);
-  //     },
-  //   }
-  // );
+  const { data, error } = useSWR<CorporateDetailList>(
+    { url: `${backendUrl}/api/companies`, params },
+    ({ url, params }) => fetcher(url, params),
+    {
+      onSuccess(data) {
+        return data;
+      },
+      onError(error) {
+        console.log("swr returns error", error);
+      },
+    }
+  );
 
   return {
     data,

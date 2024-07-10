@@ -12,7 +12,8 @@ type BaseProps = {
   options: Array<string | number>;
   /**MenuItemに'分'などを付け足したいときに使用 */
   menuItemText?: string;
-  onChange: (event: string) => void;
+  // eslint-disable-next-line no-unused-vars
+  onChange: (event: SelectChangeEvent) => void;
   error?: boolean;
   errorMessage?: string;
   size?: "small" | "medium";
@@ -38,7 +39,7 @@ export const Select = forwardRef(
     ref
   ) => {
     const handleChange = (event: SelectChangeEvent) => {
-      onChange(event.target.value); // 親から子へのコールバック
+      onChange(event); // 親から子へのコールバック
     };
 
     return (

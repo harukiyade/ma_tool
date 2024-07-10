@@ -1,4 +1,5 @@
 import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
+import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import CloseIcon from "@mui/icons-material/Close";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
@@ -19,7 +20,8 @@ export type IconType =
   | "doNot"
   | "question"
   | "check"
-  | "close";
+  | "close"
+  | "bookmark";
 type BaseProps = {
   icon: IconType;
 };
@@ -35,6 +37,7 @@ const iconMap = {
   question: HelpOutlineIcon,
   check: TaskAltIcon,
   close: CloseIcon,
+  bookmark: BookmarkAddIcon,
 };
 
 export const Icon: FC<Props> = ({ icon, color, fontSize }) => {
