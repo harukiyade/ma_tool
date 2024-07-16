@@ -7,7 +7,6 @@ import { CompanyList } from "../presentations/CompanyList";
 import { SearchPannel } from "../presentations/SearchPannel";
 import { SearchParamType, searchForm } from "./formSchema";
 import styles from "./index.module.scss";
-import { sampleData } from "./sampleData";
 import useCompanySearchList from "./useCompanySearchList";
 
 export const CompanySearchList = () => {
@@ -38,12 +37,14 @@ export const CompanySearchList = () => {
         <SearchPannel handleSearch={handleSearch} />
       </FormProvider>
       <main className={styles.dataDispWrapper}>
-        {/* <CompanyList data={sampleData} /> */}
         {isLoading && <div>読み込み中</div>}
         {isError ? (
           <div>エラーが発生しました。</div>
         ) : data ? (
-          <>{JSON.stringify(data)}</>
+          <>
+            <CompanyList data={data} />
+            {/* {JSON.stringify(data)} */}
+          </>
         ) : (
           <Typography>データが取得できませんでした。</Typography>
         )}

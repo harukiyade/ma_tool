@@ -32,7 +32,6 @@ const useCompanySearchList = (params: CampanySearchParams) => {
 
   /** 検索ボタン押下時に検索を走らせる */
   const handleSearch = (params: CampanySearchParams) => {
-    console.log("mutate triggered", params);
     setApiParams(params);
     mutate([`${backendUrl}/api/companies`, apiParams]);
   };
