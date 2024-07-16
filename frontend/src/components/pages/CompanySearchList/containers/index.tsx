@@ -23,7 +23,6 @@ export const CompanySearchList = () => {
   const { getValues } = methods;
 
   /** APIからのデータ取得 */
-  // TODO: trigger parentみたいに任意のタイミングで検索を走らせたい。(初期表示時に空で検索が走ることを避けたい)
   const { data, isError, isLoading, handleSearch } = useCompanySearchList({
     name: getValues("name"),
     corporate_number: getValues("companyId"),
@@ -41,10 +40,7 @@ export const CompanySearchList = () => {
         {isError ? (
           <div>エラーが発生しました。</div>
         ) : data ? (
-          <>
-            <CompanyList data={data} />
-            {/* {JSON.stringify(data)} */}
-          </>
+          <CompanyList data={data} />
         ) : (
           <Typography>データが取得できませんでした。</Typography>
         )}
