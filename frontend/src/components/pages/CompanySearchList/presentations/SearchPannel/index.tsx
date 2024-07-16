@@ -1,6 +1,7 @@
 import { Box, Divider, Typography } from "@mui/material";
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
+import { CampanySearchParams } from "@/api/corporate/ReqTypes";
 import { Button } from "@/components/parts/Button";
 import { Icon } from "@/components/parts/Icon";
 import { Select } from "@/components/parts/Select";
@@ -12,23 +13,37 @@ import { businessTypes, prefectures } from "./constants";
 import styles from "./index.module.scss";
 import { ddSx } from "./styleSx";
 
+type Props = {
+  // eslint-disable-next-line no-unused-vars
+  handleSearch: (params: CampanySearchParams) => void;
+};
+
 const sidePannelSx = {
   borderRadius: 2,
   bgcolor: "background.paper",
 };
 
-export const SearchPannel: FC = () => {
+export const SearchPannel = ({ handleSearch }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false); //会社検索オーバーレイの開閉
 
-  const { control, getValues, setValue, handleSubmit, trigger } =
+  const { control, getValues, setValue, handleSubmit, reset } =
     useFormContext<SearchParamType>();
 
-  const onSubmit: SubmitHandler<SearchParamType> = (data) => {
+  const onSubmit: SubmitHandler<SearchParamType> = async (data) => {
     setValue("name", data.name);
     setValue("companyId", data.companyId);
     setValue("prefecture", data.prefecture);
     setValue("businessType", data.businessType);
-    trigger();
+
+    // 検索API呼び出し
+    await handleSearch({
+      name: getValues("name"),
+      corporate_number: getValues("companyId"),
+      corporate_type: getValues("businessType"),
+      prefecture: getValues("prefecture"),
+    });
+
+    reset();
   };
 
   return (

@@ -32,7 +32,12 @@ export const ListItem: FC<Props> = ({ company }) => {
   return (
     <>
       <MUIListItem className={styles.container}>
-        <div className={styles.mainInfo}>
+        <Link
+          href={detailPageLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.mainInfo}
+        >
           <Typography
             variant="h3"
             fontWeight="bold"
@@ -47,7 +52,7 @@ export const ListItem: FC<Props> = ({ company }) => {
           >
             {location}
           </Typography>
-        </div>
+        </Link>
         <div className={styles.icons}>
           <Link href={detailPageLink} target="_blank" rel="noopener noreferrer">
             <IconButton>

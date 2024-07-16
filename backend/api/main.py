@@ -1,7 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends,  Request
 from fastapi.middleware.cors import CORSMiddleware
-from typing import  Dict, Any, List
-from models.corporate import CorpQueryParams
+from typing import  Dict, Any
+from models.corporateRes import CorporateDetailList
+from sampleData import sampleData
+from models.corporateReq import CorpQueryParams
 import requests
 import yaml
 
@@ -27,31 +29,12 @@ async def get_companies(request: Request):
     results = query_db(query_params.dict(exclude_none=True))
     return results
 
-def query_db(db_params: Dict[str, Any]) -> List[Dict[str, Any]]:
+def query_db(db_params: Dict[str, Any]) -> CorporateDetailList:
     # TODO: DBからparamsの条件に合ったデータを取得するクエリを実行する
     
     # TODO: リクエストのパラメータに応じたモックデータが返却できるように実装する。 (モックデータが10件くらい必要)
-    sample_data = [
-    {
-      "corporate_number": "1010001084833",
-      "postal_code": "1000005",
-      "location": "東京都千代田区丸の内２丁目４番１号",
-      "name": "株式会社パーソル総合研究所",
-      "status": "閉鎖",
-      "number_of_activity": "0",
-      "update_date": "2017-01-25T00:00:00+09:00"
-    },
-    {
-      "corporate_number": "1010001121801",
-      "postal_code": "1040053",
-      "location": "東京都中央区晴海１丁目８番５－２８０３号",
-      "name": "パーソルホールディングス株式会社",
-      "status": "-",
-      "number_of_activity": "0",
-      "update_date": "2020-02-13T00:00:00+09:00"
-    },
-    ]
-    return sample_data
+
+    return sampleData
 
 # OpenAPI仕様をFastAPIアプリケーションに追加
 with open("openapi.v1.yaml", "r") as f:

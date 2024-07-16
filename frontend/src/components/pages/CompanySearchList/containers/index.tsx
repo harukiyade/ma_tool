@@ -7,7 +7,6 @@ import { CompanyList } from "../presentations/CompanyList";
 import { SearchPannel } from "../presentations/SearchPannel";
 import { SearchParamType, searchForm } from "./formSchema";
 import styles from "./index.module.scss";
-import { sampleData } from "./sampleData";
 import useCompanySearchList from "./useCompanySearchList";
 
 export const CompanySearchList = () => {
@@ -24,8 +23,7 @@ export const CompanySearchList = () => {
   const { getValues } = methods;
 
   /** APIからのデータ取得 */
-  // TODO: trigger parentみたいに任意のタイミングで検索を走らせたい。(初期表示時に空で検索が走ることを避けたい)
-  const { data /**isError*/ } = useCompanySearchList({
+  const { data, isError, isLoading, handleSearch } = useCompanySearchList({
     name: getValues("name"),
     corporate_number: getValues("companyId"),
     corporate_type: getValues("businessType"),
@@ -35,12 +33,14 @@ export const CompanySearchList = () => {
   return (
     <div className={styles.container}>
       <FormProvider {...methods}>
-        <SearchPannel />
+        <SearchPannel handleSearch={handleSearch} />
       </FormProvider>
       <main className={styles.dataDispWrapper}>
-        <CompanyList data={sampleData} />
-        {data ? (
-          <>{JSON.stringify(data)}</>
+        {isLoading && <div>読み込み中</div>}
+        {isError ? (
+          <div>エラーが発生しました。</div>
+        ) : data ? (
+          <CompanyList data={data} />
         ) : (
           <Typography>データが取得できませんでした。</Typography>
         )}
