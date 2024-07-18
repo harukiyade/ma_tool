@@ -1,4 +1,4 @@
-export const businessTypes: Array<string> = [
+export const corporateTypes: Array<string> = [
   "未選択",
   "情報技術",
   "製造業",

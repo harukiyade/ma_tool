@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import Link from "next/link";
 import React, { useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
 import { Button } from "@/components/parts/Button";
@@ -12,21 +13,22 @@ import {
   AdditionalInfoFormType,
   ExtraInfoFormType,
 } from "../../containers/formSchema";
+import { BasicInfoType } from "../../containers/useCompanyDetail";
 import { AdditionalInfoInputOverlay } from "../AdditionalInfoInputOverlay";
 import styles from "./index.module.scss";
 import { box } from "./sxStyles";
 
-type DataDisplayType = {
-  title: string;
-  data: string;
-}[];
 export type AdditionalDataDisplayType = {
   title: string;
   data: string | undefined;
   formName: keyof AdditionalInfoFormType;
 }[];
 
-export const BasicInfo = () => {
+type Props = {
+  basicInfo: BasicInfoType;
+};
+
+export const BasicInfo = ({ basicInfo }: Props) => {
   const [showAdditionalInput, setShowAdditionalInput] = useState(false);
   const [showExtraInput, setShowExtraInput] = useState(false);
 
@@ -49,15 +51,15 @@ export const BasicInfo = () => {
     setShowAdditionalInput(false);
   };
 
-  const basicData: DataDisplayType = [
-    { title: "URL", data: "sample" },
-    { title: "電話番号", data: "sample" },
-    { title: "会社郵便番号", data: "sample" },
-    { title: "会社住所", data: "sample" },
-    { title: "営業種目", data: "sample" },
-    { title: "設立", data: "sample" },
-    { title: "取締役", data: "sample" },
-    { title: "業種-大", data: "sample" },
+  const basicData = [
+    { title: "URL", data: basicInfo.companyUrl },
+    { title: "電話番号", data: "データなし" },
+    { title: "会社郵便番号", data: basicInfo.postalCode },
+    { title: "会社住所", data: basicInfo.location },
+    { title: "営業種目", data: basicInfo.businessItems.join(" ") },
+    { title: "設立", data: basicInfo.foundingYear },
+    { title: "取締役", data: basicInfo.representativeName },
+    { title: "業種-大", data: "データなし" },
   ];
 
   const additionalData: AdditionalDataDisplayType = [
@@ -112,7 +114,26 @@ export const BasicInfo = () => {
         <Box sx={box} className={styles.basicInfoBox} component="section">
           <dl className={styles.dataList}>
             {basicData.map((data) => {
-              return (
+              return data.title === "URL" ? (
+                <div key={data.title}>
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    component="dt"
+                  >
+                    {data.title}
+                  </Typography>
+                  <Typography variant="h5" component="dd">
+                    <Link
+                      href={basicInfo.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {data.data}
+                    </Link>
+                  </Typography>
+                </div>
+              ) : (
                 <div key={data.title}>
                   <Typography
                     variant="caption"
