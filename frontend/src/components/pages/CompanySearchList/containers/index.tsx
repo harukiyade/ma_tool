@@ -16,7 +16,7 @@ export const CompanySearchList = () => {
     defaultValues: {
       name: "",
       companyId: "",
-      businessType: "",
+      corporateType: "",
       prefecture: "",
     },
   });
@@ -25,8 +25,8 @@ export const CompanySearchList = () => {
   /** APIからのデータ取得 */
   const { data, isError, isLoading, handleSearch } = useCompanySearchList({
     name: getValues("name"),
-    corporate_number: getValues("companyId"),
-    corporate_type: getValues("businessType"),
+    corporateNumber: getValues("companyId"),
+    corporateType: getValues("corporateType"),
     prefecture: getValues("prefecture"),
   });
 

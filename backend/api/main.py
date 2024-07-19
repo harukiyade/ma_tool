@@ -36,6 +36,18 @@ def query_db(db_params: Dict[str, Any]) -> CorporateDetailList:
 
     return sampleData
 
+# 会社詳細画面の初期表示
+@app.get("/api/companies/detail")
+async def get_company_detail(corporateNumber: str):
+    if corporateNumber == "":
+        raise HTTPException(status_code=400, detail="corporateNumber parameter is invalid")
+    
+    for company in sampleData:
+        if company.corporateNumber == corporateNumber:
+            return company
+
+    raise HTTPException(status_code=404, detail="Company not found")
+
 # OpenAPI仕様をFastAPIアプリケーションに追加
 with open("openapi.v1.yaml", "r") as f:
     openapi_spec = yaml.safe_load(f)

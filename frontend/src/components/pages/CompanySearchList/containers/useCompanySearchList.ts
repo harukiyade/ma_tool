@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 import useSWR, { mutate } from "swr";
-import { CampanySearchParams } from "@/api/corporate/ReqTypes";
+import { CompanySearchParams } from "@/api/corporate/ReqTypes";
 import { CorporateDetailList } from "@/api/corporate/ResTypes";
 
-const fetcher = async (url: string, params: CampanySearchParams) => {
+const fetcher = async (url: string, params: CompanySearchParams) => {
   const response = await axios.post(url, params);
   return response.data;
 };
 
-const useCompanySearchList = (params: CampanySearchParams) => {
+const useCompanySearchList = (params: CompanySearchParams) => {
   /** バックエンドAPIへのエンドポイント */
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   /** 検索パラメータの更新を検知するstate */
-  const [apiParams, setApiParams] = useState<CampanySearchParams>(params);
+  const [apiParams, setApiParams] = useState<CompanySearchParams>(params);
 
   /** 初期データ取得API */
   const { data, error, isLoading } = useSWR<CorporateDetailList>(
@@ -31,7 +31,7 @@ const useCompanySearchList = (params: CampanySearchParams) => {
   );
 
   /** 検索ボタン押下時に検索を走らせる */
-  const handleSearch = (params: CampanySearchParams) => {
+  const handleSearch = (params: CompanySearchParams) => {
     setApiParams(params);
     mutate([`${backendUrl}/api/companies`, apiParams]);
   };

@@ -3,7 +3,7 @@ import { z } from "zod";
 export const searchForm = z.object({
   name: z.string(),
   companyId: z.string(),
-  businessType: z.string(),
+  corporateType: z.string(),
   prefecture: z.string(),
 });
 

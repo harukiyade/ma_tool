@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, SubmitHandler, useFormContext } from "react-hook-form";
-import { CampanySearchParams } from "@/api/corporate/ReqTypes";
+import { CompanySearchParams } from "@/api/corporate/ReqTypes";
 import { Button } from "@/components/parts/Button";
 import { Icon } from "@/components/parts/Icon";
 import { Select } from "@/components/parts/Select";
@@ -9,13 +9,13 @@ import { TextField } from "@/components/parts/TextField";
 import { buttonSxOutlinedText, textFieldSx } from "@/components/themes/styleSx";
 import { SearchParamType } from "../../containers/formSchema";
 import { CompanySearchOverlay } from "../CompanySearchOverlay";
-import { businessTypes, prefectures } from "./constants";
+import { corporateTypes, prefectures } from "./constants";
 import styles from "./index.module.scss";
 import { ddSx } from "./styleSx";
 
 type Props = {
   // eslint-disable-next-line no-unused-vars
-  handleSearch: (params: CampanySearchParams) => void;
+  handleSearch: (params: CompanySearchParams) => void;
 };
 
 const sidePannelSx = {
@@ -33,13 +33,13 @@ export const SearchPannel = ({ handleSearch }: Props) => {
     setValue("name", data.name);
     setValue("companyId", data.companyId);
     setValue("prefecture", data.prefecture);
-    setValue("businessType", data.businessType);
+    setValue("corporateType", data.corporateType);
 
     // 検索API呼び出し
     await handleSearch({
       name: getValues("name"),
-      corporate_number: getValues("companyId"),
-      corporate_type: getValues("businessType"),
+      corporateNumber: getValues("companyId"),
+      corporateType: getValues("corporateType"),
       prefecture: getValues("prefecture"),
     });
 
@@ -180,17 +180,17 @@ export const SearchPannel = ({ handleSearch }: Props) => {
                 <Typography component="p">業界・業種</Typography>
                 <Controller
                   control={control}
-                  name="businessType"
+                  name="corporateType"
                   render={({ field }) => (
                     <Select
                       {...field}
                       label="業界・業種を入力"
                       value={
-                        getValues("businessType") === "未選択"
+                        getValues("corporateType") === "未選択"
                           ? ""
-                          : getValues("businessType")
+                          : getValues("corporateType")
                       }
-                      options={businessTypes}
+                      options={corporateTypes}
                       size="small"
                     />
                   )}

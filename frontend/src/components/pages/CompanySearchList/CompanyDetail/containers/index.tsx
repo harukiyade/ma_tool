@@ -19,6 +19,7 @@ import { Sourcing } from "../presentations/Sourcing";
 import { Staff } from "../presentations/Staff";
 import styles from "./index.module.scss";
 import { appBar, headerBox } from "./sxStyles";
+import useCompanyDetail from "./useCompanyDetail";
 import { useFormHandler } from "./useFormHandler";
 
 type Props = {
@@ -33,6 +34,11 @@ export const CompanyDetail = ({ id }: Props) => {
   };
 
   const { extraInfoFormMethods, additionalInfoFormMethods } = useFormHandler();
+
+  /** APIからのデータ取得 */
+  const { name, basicInfo } = useCompanyDetail({
+    corporateNumber: id,
+  });
 
   const navList: {
     id: string;
@@ -69,7 +75,7 @@ export const CompanyDetail = ({ id }: Props) => {
       <div className={styles.titleWrapper}>
         <div>
           <Typography variant="h1" fontWeight="bold">
-            サンプル株式会社
+            {name}
           </Typography>
           <Typography variant="caption" color="text.secondary">
             法人番号: {id}
@@ -131,7 +137,7 @@ export const CompanyDetail = ({ id }: Props) => {
         <TabContentFrame index={0} value={tabValue}>
           <FormProvider {...extraInfoFormMethods}>
             <FormProvider {...additionalInfoFormMethods}>
-              <BasicInfo />
+              <BasicInfo basicInfo={basicInfo} />
             </FormProvider>
           </FormProvider>
         </TabContentFrame>
