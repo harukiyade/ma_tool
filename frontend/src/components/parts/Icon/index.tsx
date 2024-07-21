@@ -9,7 +9,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import SearchIcon from "@mui/icons-material/Search";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { IconProps } from "@mui/material/Icon";
-import React, { FC } from "react";
+import React from "react";
 
 export type IconType =
   | "list"
@@ -40,7 +40,7 @@ const iconMap = {
   bookmark: BookmarkAddIcon,
 };
 
-export const Icon: FC<Props> = ({ icon, color, fontSize }) => {
+export const Icon = ({ icon, color, fontSize }: Props) => {
   const Icon = iconMap[icon] || null;
   return Icon && <Icon color={color} fontSize={fontSize} />;
 };
