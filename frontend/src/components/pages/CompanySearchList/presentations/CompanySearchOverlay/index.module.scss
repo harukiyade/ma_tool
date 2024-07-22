@@ -1,7 +1,7 @@
 .container {
   display: flex;
-  padding: var(--spacing-4);
   gap: var(--spacing-5);
+  padding: var(--spacing-4);
 
   .formWrapper {
     min-width: fit-content;

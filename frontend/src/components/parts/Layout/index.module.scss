@@ -1,5 +1,5 @@
 .container {
-  padding-top: var(--header-hight);
-  overflow-y: auto; /* コンテンツエリアにスクロールバーを表示 */
   height: 100vh; /* 高さを明示することでスクロールバーが表示される */
+  overflow-y: auto; /* コンテンツエリアにスクロールバーを表示 */
+  padding-top: var(--header-hight);
 }

@@ -1,7 +1,7 @@
 .container {
   margin: 0 auto;
-  width: 760px;
   padding: var(--spacing-3) var(--spacing-4);
+  width: 760px;
 
   .wrapper {
     display: flex;
@@ -10,9 +10,9 @@
     margin-bottom: var(--spacing-4);
 
     .addButton {
+      align-items: center;
       display: flex;
       gap: var(--spacing-2);
-      align-items: center;
 
       > button {
         width: 60px;
@@ -23,11 +23,10 @@
       padding: var(--spacing-3) var(--spacing-4);
 
       .dataList {
-        height: 200px;
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        flex-flow: column wrap;
         gap: var(--spacing-3);
+        height: 200px;
       }
     }
 
@@ -35,11 +34,10 @@
       padding: var(--spacing-3) var(--spacing-4);
 
       .dataList {
-        height: 150px;
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        flex-flow: column wrap;
         gap: var(--spacing-3);
+        height: 150px;
       }
     }
 
@@ -52,6 +50,7 @@
       .button {
         display: flex;
         justify-content: center;
+
         > button {
           width: 250px;
         }
