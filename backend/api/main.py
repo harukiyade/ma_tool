@@ -1,21 +1,13 @@
 from fastapi import FastAPI, HTTPException, Depends,  Request
 from fastapi.middleware.cors import CORSMiddleware
-import firebase_admin
-from firebase_admin import credentials, firestore
 from typing import  Dict, Any, List
-from api.models.corporate import CorpQueryParams
+from models.corporate import CorpQueryParams
 import requests
 import yaml
 
 app = FastAPI()
 # TODO: api_tokenは環境ファイルに移動する。(firebase)
 api_token = "6IGiKYADLPU7YdsqRHPOtSWU8mJcyAgm"
-
-# firebaseの初期化
-cred = credentials.Certificate("../albert-ma-firebase-adminsdk-iat1k-6e7338f40a.json")
-firebase_admin.initialize_app(cred)
-
-db = firestore.client()
 
 # fibebaseの初期化ファイル(functions/main.py)で取得したdb変数を依存関係として注入する
 # def create_app(db):
