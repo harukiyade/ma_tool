@@ -1,0 +1,109 @@
+{
+  "businessItems": [
+    "製造業",  // ビジネスアイテム（Array<String>型）
+    "販売業"   // ビジネスアイテム（Array<String>型）
+  ],
+  "businessSummary": "当社は高品質な製品を提供する企業です。",  // ビジネス概要（String型）
+  "capitalStock": 5000000,  // 資本金（Number型）
+  "certification": [
+    {
+      "category": "ISO9001",  // 認証カテゴリ（String型）
+      "dateOfApproval": "2023-05-01",  // 承認日（String型）
+      "enterpriseScale": "中小企業",  // 企業規模（String型）
+      "expirationDate": "2026-05-01",  // 有効期限（String型）
+      "governmentDepartments": "経済産業省",  // 関係省庁（String型）
+      "target": "製造業",  // 対象（String型）
+      "title": "品質管理システム"  // タイトル（String型）
+    }
+  ],
+  "closeCause": "市場競争の激化",  // 休業理由（String型）
+  "closeDate": "2024-10-01",  // 休業日（String型）
+  "commendation": [
+    {
+      "category": "優良企業",  // 表彰カテゴリ（String型）
+      "dateOfCommendation": "2023-12-15",  // 表彰日（String型）
+      "governmentDepartments": "中小企業庁",  // 関係省庁（String型）
+      "target": "地域貢献",  // 対象（String型）
+      "title": "地域活性化賞"  // タイトル（String型）
+    }
+  ],
+  "companySizeFemale": 30,  // 女性従業員数（Number型）
+  "companySizeMale": 70,  // 男性従業員数（Number型）
+  "companyUrl": "https://example.com",  // 企業URL（String型）
+  "corporateNumber": "1234567890",  // 企業番号（String型）
+  "dateOfEstablishment": "2010-04-01",  // 設立日（String型）
+  "employeeNumber": 100,  // 従業員数（Number型）
+  "finance": {
+    "accountingStandards": "日本基準",  // 会計基準（String型）
+    "fiscalYearCoverPage": "2024年度決算報告書",  // 決算書表紙（String型）
+    "majorShareholders": [
+      {
+        "nameMajorShareholders": "山田太郎",  // 主要株主名（String型）
+        "shareholdingRatio": 40  // 株式保有比率（Number型）
+      },
+      {
+        "nameMajorShareholders": "佐藤花子",  // 主要株主名（String型）
+        "shareholdingRatio": 20  // 株式保有比率（Number型）
+      }
+    ],
+    "managementIndex": [
+      {
+        "capitalStockSummaryOfBusinessResults": 5000000,  // 事業結果の資本金（Number型）
+        "capitalStockSummaryOfBusinessResultsUnitRef": "円",  // 資本金単位（String型）
+        "grossOperatingRevenueSummaryOfBusinessResults": 20000000,  // 事業結果の総売上高（Number型）
+        "grossOperatingRevenueSummaryOfBusinessResultsUnitRef": "円",  // 総売上高単位（String型）
+        "netAssetsSummaryOfBusinessResults": 10000000,  // 事業結果の純資産（Number型）
+        "netAssetsSummaryOfBusinessResultsUnitRef": "円",  // 純資産単位（String型）
+        "netIncomeLossSummaryOfBusinessResults": 3000000,  // 事業結果の純利益（Number型）
+        "netIncomeLossSummaryOfBusinessResultsUnitRef": "円",  // 純利益単位（String型）
+        "netPremiumsWrittenSummaryOfBusinessResultsIns": 1500000,  // 事業結果の保険料収入（Number型）
+        "netPremiumsWrittenSummaryOfBusinessResultsInsUnitRef": "円",  // 保険料収入単位（String型）
+        "netSalesSummaryOfBusinessResults": 25000000,  // 事業結果の純売上高（Number型）
+        "netSalesSummaryOfBusinessResultsUnitRef": "円",  // 純売上高単位（String型）
+        "numberOfEmployees": 100,  // 従業員数（Number型）
+        "numberOfEmployeesUnitRef": "人",  // 従業員数単位（String型）
+        "operatingRevenue1SummaryOfBusinessResults": 20000000,  // 事業結果の営業収入1（Number型）
+        "operatingRevenue1SummaryOfBusinessResultsUnitRef": "円",  // 営業収入1単位（String型）
+        "operatingRevenue2SummaryOfBusinessResults": 5000000,  // 事業結果の営業収入2（Number型）
+        "operatingRevenue2SummaryOfBusinessResultsUnitRef": "円",  // 営業収入2単位（String型）
+        "ordinaryIncomeLossSummaryOfBusinessResults": 3000000,  // 事業結果の経常利益（Number型）
+        "ordinaryIncomeLossSummaryOfBusinessResultsUnitRef": "円",  // 経常利益単位（String型）
+        "ordinaryIncomeSummaryOfBusinessResults": 3000000,  // 事業結果の経常利益（Number型）
+        "ordinaryIncomeSummaryOfBusinessResultsUnitRef": "円",  // 経常利益単位（String型）
+        "period": "2024年度",  // 期間（String型）
+        "totalAssetsSummaryOfBusinessResults": 12000000,  // 事業結果の総資産（Number型）
+        "totalAssetsSummaryOfBusinessResultsUnitRef": "円"  // 総資産単位（String型）
+      }
+    ]
+  },
+  "foundingYear": 2010,  // 創業年（Number型）
+  "kana": "あんけいしゃ",  // 企業名のカナ（String型）
+  "location": "東京都千代田区",  // 所在地（String型）
+  "name": "株式会社安定社",  // 企業名（String型）
+  "nameEn": "Stable Co., Ltd.",  // 英語名（String型）
+  "numberOfActivity": "50",  // アクティビティ数（String型）
+  "patent": [
+    {
+      "applicationDate": "2022-01-10",  // 出願日（String型）
+      "applicationNumber": "特許第1234567号",  // 出願番号（String型）
+      "classifications": [
+        {}  // 特許の分類（Object型）
+      ],
+      "patentType": "発明",  // 特許タイプ（String型）
+      "title": "新しい製造方法"  // 特許タイトル（String型）
+    }
+  ],
+  "postalCode": "100-0001",  // 郵便番号（String型）
+  "procurement": [
+    {
+      "supplierName": "株式会社仕入先A",  // 仕入先名（String型）
+      "contractAmount": 1000000,  // 契約金額（Number型）
+      "procurementDate": "2023-06-15"  // 仕入日（String型）
+    },
+    {
+      "supplierName": "株式会社仕入先B",  // 仕入先名（String型）
+      "contractAmount": 2000000,  // 契約金額（Number型）
+      "procurementDate": "2023-08-20"  // 仕入日（String型）
+    }
+  ]
+}

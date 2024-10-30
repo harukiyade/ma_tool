@@ -1,0 +1,25 @@
+{
+  "activityLogs": [  // 行動履歴（Array<Object>型）
+    {
+      "id": 12345,  // 行動履歴ID（string型）
+      "companyId": 67890,  // 会社ID（string型）
+      "actionType": "訪問",  // アクション種別（string型）
+      "sourcingRestrictionId": 54321,  // ソーシング制限ID（string型）
+      "meetingHistoryId": 98765,  // 面談履歴ID（string型）
+      "userId": 112233,  // ユーザーID（string型）
+      "actionDate": {  // アクション日時（FirestoreのTimestamp型、UNIXタイムスタンプ形式）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "details": "行動に関する詳細情報",  // アクションの詳細（string型）
+      "createdAt": {  // 作成日時（FirestoreのTimestamp型、UNIXタイムスタンプ形式）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "updatedAt": {  // 更新日時（FirestoreのTimestamp型、UNIXタイムスタンプ形式）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      }
+    }
+  ]
+}

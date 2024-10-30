@@ -1,0 +1,22 @@
+{
+  "additionalCompanyDetails": [  // 会社追加情報（Array<Object>型）
+    {
+      "id": 12345,  // 会社詳細ID（string型）
+      "basicInfoId": 67890,  // 基本情報ID（外部キー、string型）
+      "phoneNumber": "03-1234-5678",  // 電話番号（string型）
+      "emailAddress": "example@example.com",  // メールアドレス（string型）
+      "representativePosition": "CEO",  // 代表者の役職（string型）
+      "representativeName": "Taro Yamada",  // 代表者名（string型）
+      "notes": "特記事項なし",  // 備考（string型）
+      "reportContent": "日報内容がここに入ります",  // 日報内容（string型）
+      "createdAt": {  // 作成日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "updatedAt": {  // 更新日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      }
+    }
+  ]
+}

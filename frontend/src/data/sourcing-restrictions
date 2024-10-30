@@ -1,0 +1,48 @@
+{
+  "sourcingRestrictions": [  // ソーシング制限（Array<Object>型）
+    {
+      "id": 12345,  // ソーシング制限ID（string型）
+      "companyId": 67890,  // 会社ID（string型）
+      "corporateNumber": "1234567890123",  // 法人番号（string型）
+      "restrictionType": "DM",  // 制限種別（string型）
+      "dmRestrictionPeriod": {  // DM制限期間（開始と終了）
+        "start": {
+          "seconds": 1609459200,  // 開始日時（FirestoreのTimestamp型、number型）
+          "nanoseconds": 0
+        },
+        "end": {
+          "seconds": 1609459200,  // 終了日時（FirestoreのTimestamp型、number型）
+          "nanoseconds": 0
+        }
+      },
+      "emailRestrictionPeriod": {  // メール制限期間（開始と終了）
+        "start": {
+          "seconds": 1609459200,  // 開始日時（FirestoreのTimestamp型、number型）
+          "nanoseconds": 0
+        },
+        "end": {
+          "seconds": 1609459200,  // 終了日時（FirestoreのTimestamp型、number型）
+          "nanoseconds": 0
+        }
+      },
+      "phoneRestrictionPeriod": {  // 電話制限期間（開始と終了）
+        "start": {
+          "seconds": 1609459200,  // 開始日時（FirestoreのTimestamp型、number型）
+          "nanoseconds": 0
+        },
+        "end": {
+          "seconds": 1609459200,  // 終了日時（FirestoreのTimestamp型、number型）
+          "nanoseconds": 0
+        }
+      },
+      "createdAt": {  // 作成日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "updatedAt": {  // 更新日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      }
+    }
+  ]
+}

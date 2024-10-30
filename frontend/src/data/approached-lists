@@ -1,0 +1,31 @@
+{
+  "approachedLists": [  // アプローチリスト（Array<Object>型）
+    {
+      "id": "abc123",  // リストID（string型）
+      "companies": [  // アプローチした企業（Array<Object>型）
+        {
+          "companyId": "c1",  // 企業ID（string型）
+          "companyName": "Company1"  // 企業名（string型）
+        },
+        {
+          "companyId": "c2",
+          "companyName": "Company2"
+        },
+        {
+          "companyId": "c3",
+          "companyName": "Company3"
+        }
+      ],
+      "userId": "user123",  // ユーザーID（string型）
+      "approachType": "email",  // アプローチ種別（string型）
+      "createdAt": {  // 作成日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "updatedAt": {  // 更新日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      }
+    }
+  ]
+}

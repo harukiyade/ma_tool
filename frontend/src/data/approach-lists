@@ -1,0 +1,17 @@
+{
+  "approachLists": [  // アプローチリスト（Array<Object>型）
+    {
+      "id": 1,  // アプローチリストID（string型）
+      "companyId": 12345,  // 企業ID（string型）
+      "createdAt": {  // 追加日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "updatedAt": {  // 更新日時（FirestoreのTimestamp型）
+        "seconds": 1609459200,  // UNIXタイムスタンプの秒数（number型）
+        "nanoseconds": 0  // UNIXタイムスタンプのナノ秒（number型）
+      },
+      "employeeId": "abc123"  // 社員ID（string型）
+    }
+  ]
+}
